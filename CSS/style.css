@@ -1,0 +1,122 @@
+.head {
+    display: flex;
+    flex-direction:row;
+    justify-content: start;
+    height: 80px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(65, 11, 110);   
+}
+.menu {
+}
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 10px;
+
+}
+.menu li {
+    float: left;
+    margin-right: 10px;
+    background-color: rgb(65, 11, 110);
+}
+
+.menu li a {
+    display: block;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 31px 40px;
+    text-decoration: none;
+}
+.menu li a:hover {
+    background-color:rgb(110, 107, 102);
+}
+
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(65, 11, 110);
+    margin-top: 20px;
+    color:white;
+}
+
+.contacto {
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    align-content:space-around;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.seccion {
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size:cover; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.seccionContenido {
+    background-color: rgba(255, 255, 255, 0.781);
+    border-radius: 10px;
+    margin: 5%;
+    width: 500px;
+    color:rgb(110, 107, 102);
+    text-align: center;
+    font-size: 1.2rem;
+    padding-inline: 35px;
+    padding-bottom: 35px;
+    overflow: hidden;
+}
+
+.seccionContenido:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border: 2px solid rgba(110, 107, 102, 0.4) ;
+    
+}   
+
+.seccionContenido span {
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+#historia {
+    background-image: url("../imagenes/barco.jpg");
+}
+#vision {
+    background-image: url("../imagenes/vision.webp");
+}
+#infoGeneral {
+    background-image: url("../imagenes/gondola.jpg");
+}
+
+#descripcion {
+    /* height: auto; */
+    text-align: center;
+    font-size: large;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 100px;
+    margin-top: 100px;
+    color:rgb(110, 107, 102);
+    
+}
+
+
+body{
+    display: flex;
+    flex-direction: column;
+}
