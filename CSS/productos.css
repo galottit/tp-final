@@ -26,6 +26,6 @@
 .producto:nth-child(odd){
     background-color:rgb(110, 107, 102);
 }
-.producto div{
+.productos>div div{
     width: 25%
 }
