@@ -1,3 +1,14 @@
+.seccionProductos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color:rgb(110, 107, 102);
+    overflow: hidden;
+}
+.filaProductos{
+    display: flex;    
+    justify-content: space-evenly;  
+}
 .filaProductos:nth-child(even){
      background-color: rgb(65, 11, 110);
 }
