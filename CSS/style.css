@@ -38,7 +38,9 @@
 
 .footer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
     height: 80px;
     width: 100%;
     border-radius: 10px;
@@ -119,4 +121,10 @@ main {
 body{
     display: flex;
     flex-direction: column;
+}
+
+.redes {
+    height: 40px;
+    width: 150px;
+    border: solid 
 }
