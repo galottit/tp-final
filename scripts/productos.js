@@ -160,6 +160,8 @@ if ("content" in document.createElement("template")) {
         const clone = template.content.cloneNode(true);
         clone.querySelector(".producto>div:nth-child(1)").textContent = producto;
         clone.querySelector(".producto>div:nth-child(2)").textContent = "$ "+arrPrecios[indice];
+        clone.querySelector(".producto>div:nth-child(3)>img").setAttribute("src", "../imagenes/producto"+indice+".webp");
+        clone.querySelector(".producto>div:nth-child(3)>img").setAttribute("height", "100%");              
         tablaProductos.appendChild(clone);
     });
 } else {

@@ -17,15 +17,18 @@
 
 .producto{
     display: flex;    
-    justify-content: space-around;      
+    justify-content: space-around; 
 }
 
 .producto:nth-child(even){
-     background-color: rgb(65, 11, 110);
+     background-color:rgb(110, 107, 102);
 }
 .producto:nth-child(odd){
-    background-color:rgb(110, 107, 102);
+    background-color: rgb(65, 11, 110);
 }
 .productos>div div{
-    width: 25%
+    width: 25%;
+    height: 50px;
 }
+
+
