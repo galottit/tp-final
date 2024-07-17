@@ -149,3 +149,19 @@ arrStock = [
     4,
     6
 ];
+
+// Verifico si el navegador soporta templates
+if ("content" in document.createElement("template")) {
+    const tablaProductos = document.querySelector(".productos");
+    const template = document.querySelector("#producto");
+    
+    arrProductos.forEach((producto, indice)=>{
+        //Clono una nueva fila y la agrego a la tabla
+        const clone = template.content.cloneNode(true);
+        clone.querySelector(".producto>div:nth-child(1)").textContent = producto;
+        clone.querySelector(".producto>div:nth-child(2)").textContent = arrPrecios[indice];
+        tablaProductos.appendChild(clone);
+    });
+} else {
+    console.log("No soporta templates... que hacemos? xD");
+}

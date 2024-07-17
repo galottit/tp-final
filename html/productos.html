@@ -18,22 +18,19 @@
           </nav>
     </header>
     <main>
-        <section class="seccionProductos">
-            <div class="filaProductos">
+        <section class="productos">
+            <div class="encabezado">
                 <div>Producto</div>
                 <div>Precio</div>
-                <input type="number" name="" id="" min="0" max="99" value="1">
+                <div>Cantidad</div>                
             </div>
-            <div class="filaProductos">
-                <div>Producto</div>
-                <div>Precio</div>
-                <input type="number" name="" id="" min="0" max="99" value="1">
-            </div>
-            <div class="filaProductos">
-                <div>Producto</div>
-                <div>Precio</div>
-                <input type="number" name="" id="" min="0" max="99" value="1">
-            </div>
+            <template id="producto">
+                <div class="producto">
+                    <div></div>
+                    <div></div>
+                    <input type="number" name="" id="" min="0" max="99" value="1">
+                </div>
+            </template>            
         </section>
     </main>
     <footer class="footer">
@@ -49,6 +46,7 @@
     </footer>
 
     <script type="text/javascript" src="../scripts/script.js"></script>
+    <script type="text/javascript" src="../scripts/productos.js"></script>
 </body>
 
 </html>

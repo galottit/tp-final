@@ -1,3 +1,9 @@
+body{
+    /* display: flex;
+    flex-direction: column; */
+    color: white;
+}
+
 header {
     display: flex;
     flex-direction:row;
@@ -8,13 +14,17 @@ header {
     border-top-right-radius: 10px;
     background-color: rgb(65, 11, 110);   
 }
+/* 
 .menu {
-}
+
+} 
+*/
 nav {
     display: flex;
     border-top-left-radius: 10px;
-    overflow: hidden;
+    overflow: hidden;    
 }
+
 .menu ul {
     display: flex;
     align-items: center;
@@ -24,12 +34,12 @@ nav {
     margin: 0px;
     overflow: hidden;
 }
+
 .menu li {
     background-color: rgb(65, 11, 110);
 }
 
-.menu li a {
-    display: block;
+.menu li a {    
     color: white;
     text-align: center;
     padding: 31px 40px;
@@ -48,8 +58,7 @@ footer {
     width: 100%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: rgb(65, 11, 110);
-    color:white;
+    background-color: rgb(65, 11, 110);    
 }
 
 .contacto {
@@ -101,9 +110,11 @@ main {
 #historia {
     background-image: url("../imagenes/barco.jpg");
 }
+
 #vision {
     background-image: url("../imagenes/vision.webp");
 }
+
 #infoGeneral {
     background-image: url("../imagenes/gondola.jpg");
 }
@@ -118,12 +129,6 @@ main {
     margin-top: 100px;
     color:rgb(110, 107, 102);
     
-}
-
-
-body{
-    display: flex;
-    flex-direction: column;
 }
 
 .redes {
