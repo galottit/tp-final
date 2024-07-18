@@ -6,15 +6,15 @@ let arrStock = [8, 10, 3, 5, 9, 2, 4, 5, 0, 6, 7, 1, 10, 5, 2, 7, 6, 0, 9, 1, 8,
 
 // Verifico si el navegador soporta templates
 if ("content" in document.createElement("template")) {
-    const tablaProductos = document.querySelector(".productos");
+    const tablaProductos = document.querySelector(".seccionProductos");
     const template = document.querySelector("#producto");
 
     arrProductos.forEach((producto, indice) => {
         //Clono una nueva fila y la agrego a la tabla
         const clone = template.content.cloneNode(true);
-        clone.querySelector(".producto>div:nth-child(1)").textContent = producto;
-        clone.querySelector(".producto>div:nth-child(2)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(arrPrecios[indice]);
-        const imgProducto = clone.querySelector(".producto>div:nth-child(3)>img");
+        clone.querySelector(".producto>div:nth-child(2)").textContent = producto;
+        clone.querySelector(".producto>div:nth-child(3)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(arrPrecios[indice]);
+        const imgProducto = clone.querySelector(".producto>div:nth-child(1)>img");
         imgProducto.setAttribute("src", "../imagenes/producto" + indice + ".webp");
         imgProducto.setAttribute("height", "100%"); // VER
         imgProducto.setAttribute("alt", producto);
