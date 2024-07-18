@@ -53,6 +53,7 @@
 }
 .producto>div:nth-child(1)>div:nth-child(2)>img{
     width: 100%;
+    object-fit: contain;
 }
 .producto>div:nth-child(1)>div:nth-child(3){
     width: 20%;
