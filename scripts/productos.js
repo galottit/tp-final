@@ -24,3 +24,23 @@ if ("content" in document.createElement("template")) {
 } else {
     console.log("No soporta templates... que hacemos? xD");
 }
+
+// Agrego los manejadores de eventos a los botones de restar
+document.querySelectorAll(".botonRestar").forEach((value)=>{
+    value.addEventListener("click", ()=>{
+        let input = value.nextElementSibling;
+        if (input.value > input.getAttribute("min"))
+            value.nextElementSibling.value--; 
+    });
+});
+
+// Agrego los manejadores de eventos a los botones de sumar
+document.querySelectorAll(".botonSumar").forEach((value)=>{
+    value.addEventListener("click", ()=>{
+        let input = value.previousElementSibling;
+        if (input.value < input.getAttribute("max"))
+            value.previousElementSibling.value++;       
+    });
+});
+
+//Falta validar la entrada de valores a mano en los inputs
