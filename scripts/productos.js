@@ -14,8 +14,11 @@ if ("content" in document.createElement("template")) {
         const clone = template.content.cloneNode(true);
         clone.querySelector(".producto>div:nth-child(1)").textContent = producto;
         clone.querySelector(".producto>div:nth-child(2)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(arrPrecios[indice]);
-        clone.querySelector(".producto>div:nth-child(3)>img").setAttribute("src", "../imagenes/producto" + indice + ".webp");
-        clone.querySelector(".producto>div:nth-child(3)>img").setAttribute("height", "100%");
+        const imgProducto = clone.querySelector(".producto>div:nth-child(3)>img");
+        imgProducto.setAttribute("src", "../imagenes/producto" + indice + ".webp");
+        imgProducto.setAttribute("height", "100%"); // VER
+        imgProducto.setAttribute("alt", producto);
+        clone.querySelector(".producto>div:nth-child(4)>input").setAttribute("id", indice);
         tablaProductos.appendChild(clone);
     });
 } else {
