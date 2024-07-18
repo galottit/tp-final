@@ -1,167 +1,21 @@
-let arrProductos = [
-    "Fideos Codito",
-    "Fideos Moño",
-    "Fideos Tallarines",
-    "Arroz Fino Largo",
-    "Arroz Doble Carolina",
-    "Shampoo",
-    "Crema de Enjuague",
-    "Desodorante",
-    "Jabón de Tocador",
-    "Dentrífico",
-    "Queso Cremoso",
-    "Yogourt Bebible",
-    "Yogourt Natural",
-    "Queso Rayado",
-    "Leche Larga Vida",
-    "Lavandina",
-    "Desodorante de Pisos",
-    "Desengrasante",
-    "Detergente",
-    "Perfume de Ambiente",
-    "Plato",
-    "Vaso",
-    "Cuchillo",
-    "Tenedor",
-    "Rejilla",
-    "Alimento para Gatos",
-    "Alimento para Perros",
-    "Piedras Sanitarias",
-    "Bebedero",
-    "Plato para Alimento",
-    "Camisa Manga Larga",
-    "Chomba",
-    "Pantalón Cargo",
-    "Remera Lisa",
-    "Zapatillas",
-    "Fernet",
-    "Vino",
-    "Vodka",
-    "Ron",
-    "Gin",
-    "Osito de Peluche",
-    "Camión Volcador",
-    "Paleta de Ping Pong", 
-    "Pistola de Agua",
-    "Dron a Batería",
-    "Pan",
-    "Bizcochos",
-    "Galletitas Secas",
-    "Galletitas Integrales",
-    "Tostadas"
-];
-arrPrecios = [
-    20.00,
-    25.00,
-    22.00,
-    28.00,
-    30.00,
-    31.90,
-    34.20,
-    36.50,
-    38.80,
-    41.10,
-    43.40,
-    45.70,
-    48.00,
-    50.30,
-    52.60,
-    54.90,
-    57.20,
-    30.00,
-    31.90,
-    34.20,
-    36.50,
-    38.80,
-    40.94,
-    43.16,
-    45.38,
-    47.60,
-    49.82,
-    52.04,
-    54.26,
-    56.48,
-    58.70,
-    60.92,
-    63.14,
-    54.90,
-    57.20,
-    30.00,
-    31.90,
-    34.20,
-    36.50,
-    38.80,
-    41.10,
-    43.40,
-    45.70,
-    48.00,
-    50.30,
-    52.60,
-    54.90,
-    57.20,
-    59.50,
-    61.80
-];
-arrStock = [
-    8,
-    10,
-    3,
-    5,
-    9,
-    2,
-    4,
-    5,
-    0,
-    6,
-    7,
-    1,
-    10,
-    5,
-    2,
-    7,
-    6,
-    0,
-    9,
-    1,
-    8,
-    3,
-    6,
-    10,
-    7,
-    4,
-    9,
-    0,
-    8,
-    6,
-    4,
-    3,
-    5,
-    2,
-    1,
-    0,
-    9,
-    7,
-    10,
-    8,
-    5,
-    3,
-    2,
-    4,
-    6
-];
+"use strict";
+
+let arrProductos = ["Fideos Codito", "Fideos Moño", "Fideos Tallarines", "Arroz Fino Largo", "Arroz Doble Carolina", "Shampoo", "Crema de Enjuague", "Desodorante", "Jabón de Tocador", "Dentrífico", "Queso Cremoso", "Yogourt Bebible", "Yogourt Natural", "Queso Rayado", "Leche Larga Vida", "Lavandina", "Desodorante de Pisos", "Desengrasante", "Detergente", "Perfume de Ambiente", "Plato", "Vaso", "Cuchillo", "Tenedor", "Rejilla", "Alimento para Gatos", "Alimento para Perros", "Piedras Sanitarias", "Bebedero", "Plato para Alimento", "Camisa Manga Larga", "Chomba", "Pantalón Cargo", "Remera Lisa", "Zapatillas", "Fernet", "Vino", "Vodka", "Ron", "Gin", "Osito de Peluche", "Camión Volcador", "Paleta de Ping Pong", "Pistola de Agua", "Dron a Batería", "Pan", "Bizcochos", "Galletitas Secas", "Galletitas Integrales", "Tostadas"];
+let arrPrecios = [20.00, 25.00, 22.00, 28.00, 30.00, 31.90, 34.20, 36.50, 38.80, 41.10, 43.40, 45.70, 48.00, 50.30, 52.60, 54.90, 57.20, 30.00, 31.90, 34.20, 36.50, 38.80, 40.94, 43.16, 45.38, 47.60, 49.82, 52.04, 54.26, 56.48, 58.70, 60.92, 63.14, 54.90, 57.20, 30.00, 31.90, 34.20, 36.50, 38.80, 41.10, 43.40, 45.70, 48.00, 50.30, 52.60, 54.90, 57.20, 59.50, 61.80];
+let arrStock = [8, 10, 3, 5, 9, 2, 4, 5, 0, 6, 7, 1, 10, 5, 2, 7, 6, 0, 9, 1, 8, 3, 6, 10, 7, 4, 9, 0, 8, 6, 4, 3, 5, 2, 1, 0, 9, 7, 10, 8, 5, 3, 2, 4, 6];
 
 // Verifico si el navegador soporta templates
 if ("content" in document.createElement("template")) {
     const tablaProductos = document.querySelector(".productos");
     const template = document.querySelector("#producto");
-    
-    arrProductos.forEach((producto, indice)=>{
+
+    arrProductos.forEach((producto, indice) => {
         //Clono una nueva fila y la agrego a la tabla
         const clone = template.content.cloneNode(true);
         clone.querySelector(".producto>div:nth-child(1)").textContent = producto;
-        clone.querySelector(".producto>div:nth-child(2)").textContent = new Intl.NumberFormat('es-AR', { style : "currency", currency : "ARS" }).format(arrPrecios[indice]);
-        clone.querySelector(".producto>div:nth-child(3)>img").setAttribute("src", "../imagenes/producto"+indice+".webp");
-        clone.querySelector(".producto>div:nth-child(3)>img").setAttribute("height", "100%");              
+        clone.querySelector(".producto>div:nth-child(2)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(arrPrecios[indice]);
+        clone.querySelector(".producto>div:nth-child(3)>img").setAttribute("src", "../imagenes/producto" + indice + ".webp");
+        clone.querySelector(".producto>div:nth-child(3)>img").setAttribute("height", "100%");
         tablaProductos.appendChild(clone);
     });
 } else {
