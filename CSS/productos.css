@@ -1,3 +1,4 @@
+
 .seccionProductos {
     display: flex;
     flex-direction: row;
@@ -19,15 +20,15 @@
 
 .producto{
     display: flex;
-    border: solid;
+    border: solid 5px;
     border-color: rgb(110, 107, 102);
     flex-direction: column;
     border-radius: 15px;
     align-items: center;
     width: 200px;
     height: 250px;
-    margin: 10px;
-    background-color: rgba(255, 255, 255, 0.781);
+    margin: 1px;
+    background-color: rgb(255, 255, 255);
     color: rgb(110, 107, 102);
     font-size: 1.5rem;
     padding: 8px;
@@ -36,7 +37,7 @@
 }
 .producto:hover {
     background-color: rgba(255, 255, 255, 1);
-    border: 2px solid rgba(110, 107, 102, 0.4) ;
+    border: 8px solid rgba(110, 107, 102, 0.4) ;
 }   
 
 .producto>div:nth-child(1){
@@ -56,16 +57,34 @@
     object-fit: contain;
 }
 .producto>div:nth-child(1)>div:nth-child(3){
-    width: 20%;
+    width: 15%;
 }
 .producto>div:nth-child(2){
-    height: 20%;
+    height: 15%;
+    font-size: 1.3rem;
 }
 .producto>div:nth-child(3){
-    height: 10%;
+    height: 15%;
+    text-align: center;
+    color: rgb(110, 107, 102);
+    font-size: 1.6rem;
+    align-content:;
 }
 .producto>div:nth-child(4){
     height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;   
+}
+
+.producto>div:nth-child(4) input[type="number"]{
+    text-align: center;
+    color: rgb(110, 107, 102);
+    font-size: 1.2rem; 
+}
+.producto>div:nth-child(4) input[type="number"]::-webkit-inner-spin-button, 
+.producto>div:nth-child(4) input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
 }
 /* .producto:nth-child(even){
      background-color:rgb(110, 107, 102);

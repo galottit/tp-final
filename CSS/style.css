@@ -2,6 +2,7 @@ body{
     /* display: flex;
     flex-direction: column; */
     color: white;
+    background-color: rgb(92, 39, 116);
 }
 
 header {
