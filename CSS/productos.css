@@ -46,12 +46,12 @@
 .producto:nth-child(odd){
     background-color: rgb(65, 11, 110);
 } */
-.seccionProductos>div div{
+/* .seccionProductos>div div{
     width: 25%;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 
