@@ -14,7 +14,7 @@ if ("content" in document.createElement("template")) {
         const clone = template.content.cloneNode(true);
         clone.querySelector(".producto>div:nth-child(2)").textContent = producto;
         clone.querySelector(".producto>div:nth-child(3)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(arrPrecios[indice]);
-        const imgProducto = clone.querySelector(".producto>div:nth-child(1)>img");
+        const imgProducto = clone.querySelector(".producto>div>div:nth-child(2)>img");
         imgProducto.setAttribute("src", "../imagenes/producto" + indice + ".webp");
         imgProducto.setAttribute("height", "100%"); // VER
         imgProducto.setAttribute("alt", producto);

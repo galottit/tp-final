@@ -30,15 +30,41 @@
     background-color: rgba(255, 255, 255, 0.781);
     color: rgb(110, 107, 102);
     font-size: 1.5rem;
+    padding: 8px;
+    justify-content: space-evenly;
+    text-align: center;
 }
 .producto:hover {
     background-color: rgba(255, 255, 255, 1);
     border: 2px solid rgba(110, 107, 102, 0.4) ;
-    
 }   
 
-.producto img {
+.producto>div:nth-child(1){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60%;    
+}
+.producto>div:nth-child(1)>div:nth-child(1){
+    width: 20%;
+}
+.producto>div:nth-child(1)>div:nth-child(2){
+    width: 60%;
+}
+.producto>div:nth-child(1)>div:nth-child(2)>img{
     width: 100%;
+}
+.producto>div:nth-child(1)>div:nth-child(3){
+    width: 20%;
+}
+.producto>div:nth-child(2){
+    height: 20%;
+}
+.producto>div:nth-child(3){
+    height: 10%;
+}
+.producto>div:nth-child(4){
+    height: 10%;
 }
 /* .producto:nth-child(even){
      background-color:rgb(110, 107, 102);
