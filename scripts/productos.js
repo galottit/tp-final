@@ -52,6 +52,22 @@ function verificarCamabiosEnCantidades(inputElement){
         alert("poner un valor valido");      
     } else {
         inputElement.defaultValue = inputElement.value ;
+
+        //Recorrer form>inputs, sumar y multiplicar y colocar valores
+        let inputs = inputElement.form.querySelectorAll("input[type=number]");
+        let importeTotal = 0;
+        let cantidadTotal = 0;
+        inputs.forEach((element)=>{
+            let indice = element.getAttribute("id");
+            let cantidad = parseInt(element.value);            
+            if (cantidad>0){
+                cantidadTotal += cantidad;
+                importeTotal += arrPrecios[indice] * cantidad;
+            }
+        });
+        //Modifico los span con las cantidades y suma total
+        document.querySelector("#cantidadProductos").textContent = cantidadTotal;
+        document.querySelector(".comprarTotal>span:nth-child(2)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(importeTotal);      
     }
 }
 
