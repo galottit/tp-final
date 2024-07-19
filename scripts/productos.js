@@ -45,10 +45,8 @@ document.querySelectorAll(".botonSumar, .botonRestar").forEach((value)=>{
     });
 });
 
-let valoresInputs = document.querySelectorAll('input');
-
 // Valida la entrada manual y lanza una alerta en caso de que esté mal
-valoresInputs.forEach((input) => {
+document.querySelectorAll('input').forEach((input) => {
     input.addEventListener('change', (event) => {
 
         if(parseInt(event.target.value) > parseInt(event.target.getAttribute("max")) | parseInt(event.target.value) < parseInt(event.target.getAttribute("min"))){
