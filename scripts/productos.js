@@ -78,3 +78,25 @@ document.querySelectorAll('input').forEach((input) => {
     });
   });
 
+let mensajeError = false;
+
+document.querySelector("form").addEventListener("submit", (event) => {
+    let inputs = event.target.querySelectorAll("input[type=number]");
+ 
+    inputs.forEach((element)=>{
+        let indice = element.getAttribute("id");
+        let cantidad = parseInt(element.value);            
+        if (cantidad>0){
+            if (cantidad > arrStock[indice]){
+                console.log("producto "+indice+" fuera de stock");
+                mensajeError = true;
+                
+            }
+        }
+    });
+    if(mensajeError){
+        event.preventDefault(); // no se realiza el subbmit 
+        mensajeError=false;
+        alert("error, hay productos sin stock"); // cambiar por el mensaje de error
+    }
+ });

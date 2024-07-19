@@ -101,7 +101,7 @@
         right: 10px; 
 }
 .botonComprar input, .botonComprar span{
-    display: flex;
+    display: none;
 }
 .botonComprar img{
     width: 70%;
