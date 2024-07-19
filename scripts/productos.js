@@ -25,21 +25,19 @@ if ("content" in document.createElement("template")) {
     console.log("No soporta templates... que hacemos? xD");
 }
 
-// Agrego los manejadores de eventos a los botones de restar
-document.querySelectorAll(".botonRestar").forEach((value)=>{
-    value.addEventListener("click", ()=>{
-        let input = value.nextElementSibling;
-        if (input.value > input.getAttribute("min"))
-            value.nextElementSibling.value--; 
-    });
-});
-
 // Agrego los manejadores de eventos a los botones de sumar
-document.querySelectorAll(".botonSumar").forEach((value)=>{
-    value.addEventListener("click", ()=>{
-        let input = value.previousElementSibling;
-        if (input.value < input.getAttribute("max"))
-            value.previousElementSibling.value++;       
+document.querySelectorAll(".botonSumar, .botonRestar").forEach((value)=>{
+    value.addEventListener("click", (event)=>{
+        let input = event.target.parentElement.querySelector('input');
+        if (event.target.getAttribute("name")==="botonRestar"){
+            if (input.value > input.getAttribute("min"))
+                input.value--;       
+        }else if (event.target.getAttribute("name")==="botonSumar"){
+            if (input.value < input.getAttribute("max"))
+                input.value++;
+        }else{
+            console.log("Algo salió mal. Se esperaba botonRestar/botonSumar");
+        }
     });
 });
 
