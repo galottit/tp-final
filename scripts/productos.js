@@ -32,12 +32,12 @@ document.querySelectorAll(".botonSumar, .botonRestar").forEach((value)=>{
         if (event.target.getAttribute("name")==="botonRestar"){
             if (parseInt(input.value) > parseInt(input.getAttribute("min"))){
                 input.value--;
-                event.target.defaultValue = event.target.value;   
+                verificarCamabiosEnCantidades(input);
             }   
         }else if (event.target.getAttribute("name")==="botonSumar"){
             if (parseInt(input.value) < parseInt(input.getAttribute("max"))){
                 input.value++;
-                event.target.defaultValue = event.target.value;
+                verificarCamabiosEnCantidades(input);
             }
         }else{
             console.log("Algo salió mal. Se esperaba botonRestar/botonSumar");
@@ -46,15 +46,19 @@ document.querySelectorAll(".botonSumar, .botonRestar").forEach((value)=>{
 });
 
 // Valida la entrada manual y lanza una alerta en caso de que esté mal
-document.querySelectorAll('input').forEach((input) => {
-    input.addEventListener('change', (event) => {
+function verificarCamabiosEnCantidades(inputElement){
+    if(parseInt(inputElement.value) > parseInt(inputElement.getAttribute("max")) | parseInt(inputElement.value) < parseInt(inputElement.getAttribute("min"))){
+        inputElement.value = inputElement.defaultValue;
+        alert("poner un valor valido");      
+    } else {
+        inputElement.defaultValue = inputElement.value ;
+    }
+}
 
-        if(parseInt(event.target.value) > parseInt(event.target.getAttribute("max")) | parseInt(event.target.value) < parseInt(event.target.getAttribute("min"))){
-            event.target.value = event.target.defaultValue;
-            alert("poner un valor valido");      
-        } else {
-            event.target.defaultValue = event.target.value ;
-        }
+// Agrega un manejador de eventos para cuando cambien los inputs de cantidad
+document.querySelectorAll('input').forEach((input) => {
+    input.addEventListener('change', (event)=>{
+        verificarCamabiosEnCantidades(event.target);
     });
   });
 
