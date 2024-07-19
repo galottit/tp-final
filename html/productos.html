@@ -19,24 +19,33 @@
     </header>
     <div class="promociones">Promociones</div>
     <main>
-        <section class="seccionProductos">
-            <template id="producto">
-                <div class="producto">
-                    <div>
-                        <div>&nbsp;</div>
-                        <div><img src="" alt=""></div>
-                        <div>&nbsp;</div>
+        <form>
+            <section class="seccionProductos">            
+                <template id="producto">
+                    <div class="producto">
+                        <div>
+                            <div>&nbsp;</div>
+                            <div><img src="" alt=""></div>
+                            <div>&nbsp;</div>
+                        </div>
+                        <div></div>
+                        <div></div>
+                        <div>
+                            <button class="botonRestar" name="botonRestar">-</button>
+                            <input type="number" id="" min="0" max="99" value="0">
+                            <button class="botonSumar" name="botonSumar">+</button>
+                        </div>                    
                     </div>
-                    <div></div>
-                    <div></div>
-                    <div>
-                        <button class="botonRestar" name="botonRestar">-</button>
-                        <input type="number" id="" min="0" max="99" value="0">
-                        <button class="botonSumar" name="botonSumar">+</button>
-                    </div>                    
-                </div>
-            </template>            
-        </section>
+                </template>                    
+            </section>
+            <div>
+                <span>Productos:</span>
+                <span>0</span>
+                <span>Total:</span>
+                <span>$0</span>
+                <input type="button" value="submit">
+            </div>
+        </form>
 
     </main>
     <footer class="footer">
