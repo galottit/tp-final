@@ -30,15 +30,33 @@ document.querySelectorAll(".botonSumar, .botonRestar").forEach((value)=>{
     value.addEventListener("click", (event)=>{
         let input = event.target.parentElement.querySelector('input');
         if (event.target.getAttribute("name")==="botonRestar"){
-            if (parseInt(input.value) > parseInt(input.getAttribute("min")))
-                input.value--;       
+            if (parseInt(input.value) > parseInt(input.getAttribute("min"))){
+                input.value--;
+                event.target.defaultValue = event.target.value;   
+            }   
         }else if (event.target.getAttribute("name")==="botonSumar"){
-            if (parseInt(input.value) < parseInt(input.getAttribute("max")))
+            if (parseInt(input.value) < parseInt(input.getAttribute("max"))){
                 input.value++;
+                event.target.defaultValue = event.target.value;
+            }
         }else{
             console.log("Algo salió mal. Se esperaba botonRestar/botonSumar");
         }
     });
 });
 
-//Falta validar la entrada de valores a mano en los inputs
+let valoresInputs = document.querySelectorAll('input');
+
+// Valida la entrada manual y lanza una alerta en caso de que esté mal
+valoresInputs.forEach((input) => {
+    input.addEventListener('change', (event) => {
+
+        if(parseInt(event.target.value) > parseInt(event.target.getAttribute("max")) | parseInt(event.target.value) < parseInt(event.target.getAttribute("min"))){
+            event.target.value = event.target.defaultValue;
+            alert("poner un valor valido");      
+        } else {
+            event.target.defaultValue = event.target.value ;
+        }
+    });
+  });
+
