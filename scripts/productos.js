@@ -30,10 +30,10 @@ document.querySelectorAll(".botonSumar, .botonRestar").forEach((value)=>{
     value.addEventListener("click", (event)=>{
         let input = event.target.parentElement.querySelector('input');
         if (event.target.getAttribute("name")==="botonRestar"){
-            if (input.value > input.getAttribute("min"))
+            if (parseInt(input.value) > parseInt(input.getAttribute("min")))
                 input.value--;       
         }else if (event.target.getAttribute("name")==="botonSumar"){
-            if (input.value < input.getAttribute("max"))
+            if (parseInt(input.value) < parseInt(input.getAttribute("max")))
                 input.value++;
         }else{
             console.log("Algo salió mal. Se esperaba botonRestar/botonSumar");
