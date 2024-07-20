@@ -143,4 +143,34 @@ main {
     background-color: white;
     
 }
+#gifCaballo {
+    background-image: url("../imagenes/caballoGalopando.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px;
+}
+.promociones {
+    display: flex;
+    animation: aparecerCaballo 5s;
 
+}
+.promocionesProductos {
+    display: flex;
+    flex-direction: row;
+    border: solid 2px white;
+    height:  100px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+@keyframes aparecerCaballo {
+    0% {
+        transform: translatex(100%);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+
+}
