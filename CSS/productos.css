@@ -136,3 +136,37 @@
     display: flex;
     flex-direction: row;
 }
+
+#gifCaballo {
+    background-image: url("../imagenes/caballoGalopando.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px;
+}
+.promociones {
+    display: flex;
+    animation: aparecerCaballo 5s;
+
+}
+.promocionesProductos {
+    display: flex;
+    flex-direction: row;
+    border: solid 5px rgb(65, 11, 110);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    height:  auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+@keyframes aparecerCaballo {
+    0% {
+        transform: translatex(100%);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+
+}
