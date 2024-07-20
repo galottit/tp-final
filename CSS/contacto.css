@@ -1,15 +1,52 @@
 .datosPersonales {
-    display: flez;
+    display: flex;
     flex-direction: column;
     font-size: 1.2rem;
+    width: 40%;
 }
 .datosPersonales input{
+
     border-radius: 5px;
     height: 20px;
 }
-
 #cajaConsulta {
-    width: 400px;
     height: 200px;
     border-radius: 10px;
+    text-align: center;
+}
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+main>:nth-child(2){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.infoGalope {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    justify-content: center;
+}
+#botonEnviar{
+    width: 100%;
+    height: 25px;
+    margin-top: 5px;
+    border-radius: 5px;
+    background-color: rgb(65, 11, 110);
+    color: black;
+    border: none;
+    color: white;
+    font-size: 1.0rem;
+    font-weight: 700;
+    transition: background-color .5s ease;
+
+}
+#botonEnviar:hover {
+    background-color: rgba(65, 11, 110, 0.8);
+    cursor: pointer;
 }
