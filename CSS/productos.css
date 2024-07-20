@@ -126,3 +126,13 @@
 .botonComprar:hover input, .botonComprar:hover span{
     display: block;
 }
+
+.promocionesProducto {
+    display: flex; 
+    flex-direction: row;
+
+}
+.seccionPromociones {
+    display: flex;
+    flex-direction: row;
+}
