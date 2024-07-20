@@ -18,6 +18,27 @@ main {
     display: flex;
     flex-direction: column;
 }
+main>:nth-child(1) {
+    background-image: url("../imagenes/caballosFondo2.jpg");
+    background-size: 100%;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    color:rgb(208, 206, 212);
+}
+main>:nth-child(1) h1{
+    margin: 0px;
+    margin-top: 4%
+}
+main>:nth-child(1) h3{
+    margin: 0px;
+}
+main>:nth-child(1) h4{
+    margin: 0px;
+    font-size: 0.8rem;
+}
 
 main>:nth-child(2){
     display: flex;
