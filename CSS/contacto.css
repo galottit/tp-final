@@ -1,0 +1,15 @@
+.datosPersonales {
+    display: flez;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+.datosPersonales input{
+    border-radius: 5px;
+    height: 20px;
+}
+
+#cajaConsulta {
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+}
