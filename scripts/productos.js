@@ -79,11 +79,10 @@ document.querySelectorAll('input').forEach((input) => {
     });
   });
 
-let mensajeError = false;
-
+//Verifica el stock de los productos seleccionados
 document.querySelector("form").addEventListener("submit", (event) => {
     let inputs = event.target.querySelectorAll("input[type=number]");
- 
+    let mensajeError = false;
     inputs.forEach((element)=>{
         let indice = element.getAttribute("id");
         let cantidad = parseInt(element.value);            
