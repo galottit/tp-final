@@ -33,14 +33,21 @@ if ("content" in document.createElement("template")) {
         imgProducto.setAttribute("src", "../imagenes/producto" + codigo + ".webp");
         imgProducto.setAttribute("alt", producto[0]);
         nuevoProducto.querySelector(".producto>div:nth-child(4)>input").setAttribute("id", codigo);
-        tablaProductos.appendChild(nuevoProducto);
+        tablaProductos.appendChild(nuevoProducto)
 
         //Si el producto está en oferta lo agrego a la sección indicada
-        if (producto[3]){            
+        if (producto[3]){       
             //Clono una nueva fila y la agrego a la tabla
             const tablaOfertas = document.querySelector('.seccionPromociones');
             const templateOferta = tablaOfertas.querySelectorAll("template")[0];
             const nuevaOferta = templateOferta.content.cloneNode(true);
+            
+            nuevaOferta.querySelector('div').addEventListener('click', ()=>{
+                location.href='#'+codigo;
+            });
+
+
+
             nuevaOferta.querySelector(".producto>div:nth-child(2)").textContent = producto[0]
             nuevaOferta.querySelector(".producto>div:nth-child(3)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto[1]);
             const imgProducto = nuevaOferta.querySelector(".producto>div>div:nth-child(2)>img");
