@@ -56,6 +56,11 @@
     width: 100%;
     object-fit: contain;
 }
+
+.producto>div>div:nth-child(2)>img{
+    height: 100%;
+}
+
 .producto>div:nth-child(1)>div:nth-child(3){
     width: 15%;
 }

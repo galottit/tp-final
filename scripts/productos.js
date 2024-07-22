@@ -11,7 +11,6 @@ const cantidadProductosEnPromocion = 4;
 for (let i = 0; i < cantidadProductosEnPromocion; i++) {
     let indice = (Math.floor(Math.random() * (arrProductosNombres.length + 1)));
     arrOfertas[indice] = true;    
-    console.log(indice);
 }
 
 // Unifica los arreglos en uno
@@ -19,9 +18,6 @@ for (let i = 0; i < arrProductosNombres.length; i++) {
     arrProductos.push([]); // Agregamos una nueva fila
     arrProductos[i].push(arrProductosNombres[i], arrProductosPrecios[i], arrProductosStock[i], arrOfertas[i]);
 }
-
-
-
 
 //Verifico que el navegador soporte <template>
 if ("content" in document.createElement("template")) {
@@ -35,7 +31,6 @@ if ("content" in document.createElement("template")) {
         nuevoProducto.querySelector(".producto>div:nth-child(3)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto[1]);
         const imgProducto = nuevoProducto.querySelector(".producto>div>div:nth-child(2)>img");
         imgProducto.setAttribute("src", "../imagenes/producto" + codigo + ".webp");
-        imgProducto.setAttribute("height", "100%"); // VER
         imgProducto.setAttribute("alt", producto[0]);
         nuevoProducto.querySelector(".producto>div:nth-child(4)>input").setAttribute("id", codigo);
         tablaProductos.appendChild(nuevoProducto);
@@ -50,7 +45,6 @@ if ("content" in document.createElement("template")) {
             nuevaOferta.querySelector(".producto>div:nth-child(3)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto[1]);
             const imgProducto = nuevaOferta.querySelector(".producto>div>div:nth-child(2)>img");
             imgProducto.setAttribute("src", "../imagenes/producto" + codigo + ".webp");
-            imgProducto.setAttribute("height", "100%"); // VER
             imgProducto.setAttribute("alt", producto[0]);
             tablaOfertas.appendChild(nuevaOferta);            
         }
