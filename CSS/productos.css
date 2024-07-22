@@ -144,13 +144,17 @@ input[type=number] {
 .seccionPromociones {
     display: flex;
     flex-direction: row;
+    width: 80%;
 }
 
 #gifCaballo {
+    display: flex;
     background-image: url("../imagenes/caballoGalopando.gif");
     background-size: contain;
     background-repeat: no-repeat;
-    width: 150px;
+    width: 10%;
+    height: 100%;
+    align-items:
 }
 .promociones {
     display: flex;
