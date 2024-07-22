@@ -157,13 +157,17 @@ document.querySelectorAll('input').forEach((input) => {
 let mensajeError = false;
 
 document.querySelector("form").addEventListener("submit", (event) => {
+    const divAviso = document.getElementById("mensajeAlerta");
+    divAviso.style.display= "flex";
     let inputs = event.target.querySelectorAll("input[type=number]");
- 
+    
+    event.preventDefault(); // no se realiza el subbmit 
+
     inputs.forEach((element)=>{
         let indice = element.getAttribute("id");
         let cantidad = parseInt(element.value);            
         if (cantidad>0){
-            if (cantidad > arrStock[indice]){
+            if (cantidad > arrProductos[indice][3]){
                 console.log("producto "+indice+" fuera de stock");
                 mensajeError = true;
                 
@@ -171,9 +175,8 @@ document.querySelector("form").addEventListener("submit", (event) => {
         }
     });
     if(mensajeError){
-        event.preventDefault(); // no se realiza el subbmit 
         mensajeError=false;
-        alert("error, hay productos sin stock"); // cambiar por el mensaje de error
+        event.preventDefault(); // no se realiza el subbmit 
     }
  });
 

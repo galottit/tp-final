@@ -191,3 +191,14 @@ input[type=number] {
     }
 
 }
+
+.mensajeAlerta {
+    display: none;
+    background-color:rgb(110, 107, 102);
+    width: 80%;
+    height: 60%;
+    left: 10%;
+    position: fixed;
+    bottom: 20%; 
+    border: 2px solid rgb(65, 11, 110);
+}
