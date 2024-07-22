@@ -180,3 +180,18 @@ document.querySelector("form").addEventListener("submit", (event) => {
     }
  });
 
+ //si hago click fuera del mensaje se oculta de nuevo
+ document.getElementById("mensajeAlerta").addEventListener('click', function(e) {
+    document.addEventListener('click', function(event) {
+      var clickedItem = event.target;
+      if (clickedItem != document.getElementById('mensajeAlerta')) {
+        document.getElementById('mensajeAlerta').style.display = 'none';
+      }
+    });
+  });
+  // si apreto escape o enter se oculta de nuevo
+  document.addEventListener('keydown', function(e) { //cuando presiono cualquier tecla
+    if (e.key === 'Enter' || e.key === 'Escape') { // Si presiono letra esc o enter
+        document.getElementById('mensajeAlerta').style.display = 'none';
+    }
+  });
