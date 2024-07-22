@@ -5,11 +5,13 @@ let arrPrecios = [20.00, 25.00, 22.00, 28.00, 30.00, 31.90, 34.20, 36.50, 38.80,
 let arrStock = [8, 10, 3, 5, 9, 2, 4, 5, 0, 6, 7, 1, 10, 5, 2, 7, 6, 0, 9, 1, 8, 3, 6, 10, 7, 4, 9, 0, 8, 6, 4, 3, 5, 2, 1, 0, 9, 7, 10, 8, 5, 3, 2, 4, 6];
 let arrProductos2 = [];
 
-arrProductos2 = [
-    arrProductos,
-    arrPrecios,
-    arrStock,
-];
+for (let i = 0; i < arrProductos.length; i++) {
+    arrProductos2.push([]); // Agregamos una nueva fila
+    arrProductos2[i].push(arrProductos[i], arrPrecios[i], arrStock[i]);
+}
+
+console.log(arrProductos2);
+
 
 
 const cantidadProductosEnPromocion = 4;
