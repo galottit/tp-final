@@ -165,15 +165,29 @@ document.querySelector("form").addEventListener("submit", (event) => {
 
     inputs.forEach((element)=>{
         let indice = element.getAttribute("id");
-        let cantidad = parseInt(element.value);            
+        let cantidad = parseInt(element.value); 
+        let cantidadTotalProductos = 0;
+        let precioTotal = 0;    
         if (cantidad>0){
-            if (cantidad > arrProductos[indice][3]){
+            if (cantidad > arrProductos[indice][2]){
                 console.log("producto "+indice+" fuera de stock");
                 mensajeError = true;
                 
             }
+            cantidadTotalProductos += cantidad;
+            precioTotal += (cantidad * arrProductos[indice][1]);
+
         }
     });
+    console.log(cantidadTotalProductos);
+    console.log(precioTotal); //tengo que seguir desde aca ---------------------------------
+    //--------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------
+
     if(mensajeError){
         mensajeError=false;
         event.preventDefault(); // no se realiza el subbmit 

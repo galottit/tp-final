@@ -200,5 +200,6 @@ input[type=number] {
     left: 10%;
     position: fixed;
     bottom: 20%; 
-    border: 2px solid rgb(65, 11, 110);
+    border: 4px solid rgb(65, 11, 110);
+    border-radius: 15px;
 }
