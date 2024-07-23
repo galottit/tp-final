@@ -158,4 +158,5 @@ document.querySelector("form").addEventListener("submit", (event) => {
     if (error) {
         event.preventDefault();
     }
+    
 });
