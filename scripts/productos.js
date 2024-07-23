@@ -215,17 +215,26 @@ window.onclick = function(event) {
 
 // Manejador de Evento del submit del formulario de compra
 document.querySelector("form").addEventListener("submit", (event) => {
-    event.preventDefault(); // no se realiza el submit
-
     //Recorro el detalle ya generado
     const detalles = document.querySelectorAll('.detalleProducto');
-    detalles.forEach((prod)=>{
-        let id = prod.getAttribute('data-id');
-        let cant = parseInt(prod.getAttribute('data-cantidad'));
-        if (cant > productos[id].stock){
-            prod.classList.toggle('stockError');
-            prod.querySelector('.mensajeError').classList.remove('elementoOculto');
-            event.target.querySelector('input[type=submit]').classList.add('elementoOculto');
-        }
-    })
+    let error = false;
+    if (detalles.length>0){
+        detalles.forEach((prod)=>{
+            let id = prod.getAttribute('data-id');
+            let cant = parseInt(prod.getAttribute('data-cantidad'));
+            if (cant > productos[id].stock){
+                error = true;
+                prod.classList.toggle('stockError');
+                prod.querySelector('.mensajeError').classList.remove('elementoOculto');
+                event.target.querySelector('input[type=submit]').classList.add('elementoOculto');
+            }
+        });
+    }else{
+        //No hay elementos
+        error = true;
+    }
+    //Si hubo algún error detengo el submit
+    if (error) {
+        event.preventDefault();
+    }
 });
