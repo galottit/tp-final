@@ -149,12 +149,13 @@ document.querySelectorAll('input').forEach((input) => {
     });
   });
 
+// Manejador de Evento del submit del formulario de compra
 let mensajeError = false;
 
 document.querySelector("form").addEventListener("submit", (event) => {
     const divAviso = document.getElementById("mensajeAlerta");
     divAviso.style.display= "flex";
-    event.preventDefault(); // no se realiza el subbmit
+    event.preventDefault(); // no se realiza el submit
 
     inputs.forEach((element)=>{
         let indice = element.getAttribute("id");
