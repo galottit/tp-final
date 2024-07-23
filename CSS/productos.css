@@ -128,52 +128,7 @@ input[type=number] {
     border: 4px solid rgb(65, 11, 110);
 }
 
-.promocionesProducto {
-    display: flex; 
-    flex-direction: row;
 
-}
-.seccionPromociones {
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-}
-
-.gifCaballo {
-    display: flex;
-    flex-direction: column;
-    background-repeat: no-repeat;
-    width: 10%;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.gifCaballo img {
-    width: 100%;
-    object-fit: contain;
-}
-.promociones {
-    display: flex;
-    animation: aparecerCaballo 5s;
-}
-@keyframes aparecerCaballo {
-    0% {transform: translatex(100%);}
-    100% {transform: translateX(0px);}
-}
-
-.promocionesProductos {
-    display: flex;
-    flex-direction: row;
-    border: solid 5px rgb(65, 11, 110);
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    height:  auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    width: 100%;
-    justify-content: space-between;
-}
 
 /* Fondo del modal */
 .modal {
