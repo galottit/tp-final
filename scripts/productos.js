@@ -58,48 +58,6 @@ if ("content" in document.createElement("template")) {
     });
 }
 
-//cargarProductosEnSeccion(arrPromocion, '.seccionPromociones');
-//cargarProductosEnSeccion(arrTodosLosProductos, '.seccionProductos');
-
-// // Verifico si el navegador soporta templates
-// if ("content" in document.createElement("template")) {
-//     const tablaProductos = document.querySelector(".seccionProductos");
-//     const template = document.querySelector("#producto");
-
-//     arrProductos.forEach((producto, indice) => {
-//         //Clono una nueva fila y la agrego a la tabla
-//         const clone = template.content.cloneNode(true);
-//         clone.querySelector(".producto>div:nth-child(2)").textContent = producto;
-//         clone.querySelector(".producto>div:nth-child(3)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(arrPrecios[indice]);
-//         const imgProducto = clone.querySelector(".producto>div>div:nth-child(2)>img");
-//         imgProducto.setAttribute("src", "../imagenes/producto" + indice + ".webp");
-//         imgProducto.setAttribute("height", "100%"); // VER
-//         imgProducto.setAttribute("alt", producto);
-//         clone.querySelector(".producto>div:nth-child(4)>input").setAttribute("id", indice);
-//         tablaProductos.appendChild(clone);
-//     });
-// } else {
-//     console.log("No soporta templates... que hacemos? xD");
-// }
-
-//  // cargo los productos en oferta, falta realizar el descuento
-//  if ("content" in document.createElement("template")) {
-//     const tablaProductos = document.querySelector(".seccionPromociones");
-//     const template = document.querySelector("#promociones");
-
-//     arrPromocion.forEach((producto, indice) => {
-//         //Clono una nueva fila y la agrego a la tabla
-//         const clone = template.content.cloneNode(true);
-//         clone.querySelector(".producto>div:nth-child(2)").textContent = arrProductos[producto];
-//         clone.querySelector(".producto>div:nth-child(3)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(arrPrecios[producto]);
-//         const imgProducto = clone.querySelector(".producto>div>div:nth-child(2)>img");
-//         imgProducto.setAttribute("src", "../imagenes/producto" + producto + ".webp");
-//         imgProducto.setAttribute("height", "100%"); // VER
-//         imgProducto.setAttribute("alt", producto);
-//         clone.querySelector(".producto>div:nth-child(4)>input").setAttribute("id", producto);
-//         tablaProductos.appendChild(clone);
-//     });
-// }
 
 // Agrego los manejadores de eventos a los botones de sumar
 document.querySelectorAll(".botonSumar, .botonRestar").forEach((value)=>{
@@ -128,22 +86,6 @@ function verificarCamabiosEnCantidades(inputElement){
         alert("poner un valor valido");      
     } else {
         inputElement.defaultValue = inputElement.value ;
-
-        //Recorrer form>inputs, sumar y multiplicar y colocar valores
-        let inputs = inputElement.form.querySelectorAll("input[type=number]");
-        let importeTotal = 0;
-        let cantidadTotal = 0;
-        inputs.forEach((element)=>{
-            let indice = element.getAttribute("id");
-            let cantidad = parseInt(element.value);            
-            if (cantidad>0){
-                cantidadTotal += cantidad;
-                importeTotal += arrProductos[indice][1] * cantidad;
-            }
-        });
-        //Modifico los span con las cantidades y suma total
-        document.querySelector("#cantidadProductos").textContent = cantidadTotal;
-        document.querySelector(".comprarTotal>span:nth-child(2)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(importeTotal);      
     }
 }
 
@@ -159,53 +101,37 @@ let mensajeError = false;
 document.querySelector("form").addEventListener("submit", (event) => {
     const divAviso = document.getElementById("mensajeAlerta");
     divAviso.style.display= "flex";
-    let inputs = event.target.querySelectorAll("input[type=number]");
-    
-    event.preventDefault(); // no se realiza el subbmit 
+    event.preventDefault(); // no se realiza el subbmit
 
-    inputs.forEach((element)=>{
-        let indice = element.getAttribute("id");
-        let cantidad = parseInt(element.value); 
-        let cantidadTotalProductos = 0;
-        let precioTotal = 0;    
-        if (cantidad>0){
-            if (cantidad > arrProductos[indice][2]){
-                console.log("producto "+indice+" fuera de stock");
-                mensajeError = true;
-                
-            }
-            cantidadTotalProductos += cantidad;
-            precioTotal += (cantidad * arrProductos[indice][1]);
-
+    let inputs = document.querySelectorAll('.producto input[type=number]');
+    let cantidadTotal = 0;
+    let importeTotal = 0;
+    console.log(inputs); // voy viendo el input en la consola
+    inputs.forEach( (elemento)=> {
+        let cantidad = parseInt(elemento.value);
+        let id = elemento.getAttribute("id");
+        if(cantidad > 0){
+            cantidadTotal += cantidad;
+            importeTotal += (arrProductos[id][1] * cantidad);
         }
     });
-    console.log(cantidadTotalProductos);
-    console.log(precioTotal); //tengo que seguir desde aca ---------------------------------
-    //--------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------
-    //--------------------------------------------------------------------------------------
+    //document.querySelectorAll(".mensajeAlerta>span:nth-child(2)").textContent = cantidadTotal;
+    // hay que corregir esto!!!!
+});
 
-    if(mensajeError){
-        mensajeError=false;
-        event.preventDefault(); // no se realiza el subbmit 
-    }
- });
 
- //si hago click fuera del mensaje se oculta de nuevo
- document.getElementById("mensajeAlerta").addEventListener('click', function(e) {
-    document.addEventListener('click', function(event) {
-      var clickedItem = event.target;
-      if (clickedItem != document.getElementById('mensajeAlerta')) {
-        document.getElementById('mensajeAlerta').style.display = 'none';
-      }
+//si hago click fuera del mensaje se oculta de nuevo
+document.getElementById("mensajeAlerta").addEventListener('click', function(e) {
+document.addEventListener('click', function(event) {
+        var clickedItem = event.target;
+        if (clickedItem != document.getElementById('mensajeAlerta')) {
+            document.getElementById('mensajeAlerta').style.display = 'none';
+        }
     });
-  });
-  // si apreto escape o enter se oculta de nuevo
-  document.addEventListener('keydown', function(e) { //cuando presiono cualquier tecla
-    if (e.key === 'Enter' || e.key === 'Escape') { // Si presiono letra esc o enter
+});
+// si apreto escape o enter se oculta de nuevo
+document.addEventListener('keydown', function(e) { //cuando presiono cualquier tecla
+if (e.key === 'Enter' || e.key === 'Escape') { // Si presiono letra esc o enter
         document.getElementById('mensajeAlerta').style.display = 'none';
     }
-  });
+});
