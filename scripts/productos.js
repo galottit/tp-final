@@ -1,4 +1,6 @@
 "use strict";
+
+// Objeto con los datos de los productos
 let productos = [
     {nombre: "Fideos Codito", precio: 20.00, stock: 8, oferta: false},
     {nombre: "Fideos Moño", precio: 25.00, stock: 10, oferta: false},
@@ -10,11 +12,11 @@ let productos = [
     {nombre: "Desodorante", precio: 36.50, stock: 5, oferta: false},
     {nombre: "Jabón de Tocador", precio: 38.80, stock: 0, oferta: false},
     {nombre: "Dentrífico", precio: 41.10, stock: 6, oferta: false},
-    {nombre: "Queso Cremoso", precio: 43.40, stock: 7, oferta: false},
-    {nombre: "Yogourt Bebible", precio: 45.70, stock: 1, oferta: false},
-    {nombre: "Yogourt Natural", precio: 48.00, stock: 10, oferta: false},
+    {nombre: "Queso Cremoso", precio: 43.40, stock: 7, oferta: true},
+    {nombre: "Yogourt Bebible", precio: 45.70, stock: 1, oferta: true},
+    {nombre: "Yogourt Natural", precio: 48.00, stock: 10, oferta: true},
     {nombre: "Queso Rayado", precio: 50.30, stock: 5, oferta: false},
-    {nombre: "Leche Larga Vida", precio: 52.60, stock: 2, oferta: false},
+    {nombre: "Leche Larga Vida", precio: 52.60, stock: 2, oferta: true},
     {nombre: "Lavandina", precio: 54.90, stock: 7, oferta: false},
     {nombre: "Desodorante de Pisos", precio: 57.20, stock: 6, oferta: false},
     {nombre: "Desengrasante", precio: 30.00, stock: 0, oferta: false},
@@ -51,14 +53,16 @@ let productos = [
     {nombre: "Galletitas Integrales", precio: 59.50, stock: 5, oferta: false},
     {nombre: "Tostadas", precio: 61.80, stock: 3, oferta: false}
 ]
-
+/*
 // Agrega {cantidadProductosEnPromocion} ofertas al azar
 const cantidadProductosEnPromocion = 4;
 for (let i = 0; i < cantidadProductosEnPromocion; i++) {
     let indice = (Math.floor(Math.random() * (productos.length + 1)));
     productos[indice].oferta = true;
 }
+*/
 
+/* Agrega los productos a la pagina usando templates */
 //Verifico que el navegador soporte <template>
 if ("content" in document.createElement("template")) {
     const tablaProductos = document.querySelector('.seccionProductos');
@@ -123,22 +127,6 @@ function verificarCamabiosEnCantidades(inputElement){
         alert("poner un valor valido");      
     } else {
         inputElement.defaultValue = inputElement.value ;
-
-        //Recorrer form>inputs, sumar y multiplicar y colocar valores
-        let inputs = inputElement.form.querySelectorAll("input[type=number]");
-        let importeTotal = 0;
-        let cantidadTotal = 0;
-        inputs.forEach((element)=>{
-            let indice = element.getAttribute("id");
-            let cantidad = parseInt(element.value);            
-            if (cantidad>0){
-                cantidadTotal += cantidad;
-                importeTotal += productos[indice].precio * cantidad;
-            }
-        });
-        //Modifico los span con las cantidades y suma total
-        document.querySelector("#cantidadProductos").textContent = cantidadTotal;
-        document.querySelector(".comprarTotal>span:nth-child(2)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(importeTotal);      
     }
 }
 
@@ -149,42 +137,95 @@ document.querySelectorAll('input').forEach((input) => {
     });
   });
 
-// Manejador de Evento del submit del formulario de compra
-let mensajeError = false;
-
-document.querySelector("form").addEventListener("submit", (event) => {
-    const divAviso = document.getElementById("mensajeAlerta");
-    divAviso.style.display= "flex";
-    event.preventDefault(); // no se realiza el submit
-
-    inputs.forEach((element)=>{
-        let indice = element.getAttribute("id");
-        let cantidad = parseInt(element.value);            
-        if (cantidad>0){
-            if (cantidad > productos[indice].stock){
-                console.log("producto "+indice+" fuera de stock");
-                mensajeError = true;            
-            }
-        }
-    });
-    //document.querySelectorAll(".mensajeAlerta>span:nth-child(2)").textContent = cantidadTotal;
-    // hay que corregir esto!!!!
+// Cierra el modal con ESC
+document.addEventListener('keydown', function(e) { 
+    if (e.key === 'Escape') { 
+        document.getElementById("modal").style.display = 'none';
+    };
 });
 
+/* Agrega un nodo nuevo con los datos del producto y cantidad especificados */
+function agregarDetalleProducto(id, cantidad){
+    //Verifico el soporte de templates
+    if ("content" in document.createElement("template")) {
+        const detalleCompra = document.querySelector('#detalleCompra');
+        const detalleProducto = document.querySelector('#templateDetalleProducto');
+    
+        //Utilzo el template para generar un nuev nodo
+        const nuevoProducto = detalleProducto.content.cloneNode(true);
+        //Agrego al div con la clase los datos del producto para usalos luego usando atributos data-*
+        nuevoProducto.querySelector('.detalleProducto').setAttribute("data-id", id);
+        nuevoProducto.querySelector('.detalleProducto').setAttribute("data-cantidad", cantidad);
+        //Altero el contenido de los span
+        nuevoProducto.querySelector(".detalleCantProd").textContent = cantidad;        
+        nuevoProducto.querySelector(".detalleNombProd").textContent = productos[id].nombre;
+        //Calculo el precio y el descuento si así es necesario
+        let subTotal = productos[id].precio*cantidad;
+        if (productos[id].oferta){
+            subTotal*=0.7; // Aplico un descuento del 30%
+        }
+        nuevoProducto.querySelector(".detalleSubtotal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(subTotal);
+        //Agrego el nodo nuevo
+        detalleCompra.appendChild(nuevoProducto);
+    };
+};
 
-//si hago click fuera del mensaje se oculta de nuevo
-document.getElementById("mensajeAlerta").addEventListener('click', function(e) {
-document.addEventListener('click', function(event) {
-        var clickedItem = event.target;
-        if (clickedItem != document.getElementById('mensajeAlerta')) {
-            document.getElementById('mensajeAlerta').style.display = 'none';
+// Muestra el modal al hacer click en el boton de compra
+let btnDetalleCompra = document.getElementById("btnDetalleCompra");
+btnDetalleCompra.addEventListener("click", (ev)=>{
+    document.getElementById("modal").style.display = "block";
+
+    //Elimino los elementos si los hay
+    document.querySelectorAll('#detalleCompra .detalleProducto').forEach((element)=>{
+        element.remove();
+    });
+    //Restauro la visibilidad del submit
+    document.querySelector('input[type=submit]').classList.remove('elementoOculto');
+
+    //Recorro los input[number], sumar y multiplicar y colocar valores
+    let inputs = document.querySelectorAll("input[type=number]");
+    let importeTotal = 0;
+    let cantidadTotal = 0;
+    inputs.forEach((element)=>{
+        let id = element.getAttribute("id");
+        let cantidad = parseInt(element.value);            
+        if (cantidad>0){
+            cantidadTotal += cantidad;
+            importeTotal += productos[id].precio * cantidad;
+            agregarDetalleProducto(id, cantidad); //Llama a la funcion que usa el template
         }
     });
-  });
+    
+    //Modifico los span con las cantidades y suma total
+    document.querySelector("#cantidadProductos").textContent = cantidadTotal;
+    document.querySelector("#importeTotal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(importeTotal);      
+});
 
-  // si apreto escape o enter se oculta de nuevo
-  document.addEventListener('keydown', function(e) { //cuando presiono cualquier tecla
-    if (e.key === 'Enter' || e.key === 'Escape') { // Si presiono letra esc o enter
-        document.getElementById('mensajeAlerta').style.display = 'none';
-    }
+// Cuando el usuario clickea en el <span> (x), cierra el formulario modal
+document.getElementById("spanCerrar").addEventListener("click", ()=>{
+    document.getElementById("modal").style.display = "none";
+})
+
+// Cierra el modal al hacer clic en el fondo del mismo
+window.onclick = function(event) {
+    if (event.target == document.getElementById("modal")) {
+        document.getElementById("modal").style.display = "none";
+    };
+}
+
+// Manejador de Evento del submit del formulario de compra
+document.querySelector("form").addEventListener("submit", (event) => {
+    event.preventDefault(); // no se realiza el submit
+
+    //Recorro el detalle ya generado
+    const detalles = document.querySelectorAll('.detalleProducto');
+    detalles.forEach((prod)=>{
+        let id = prod.getAttribute('data-id');
+        let cant = parseInt(prod.getAttribute('data-cantidad'));
+        if (cant > productos[id].stock){
+            prod.classList.toggle('stockError');
+            prod.querySelector('.mensajeError').classList.remove('elementoOculto');
+            event.target.querySelector('input[type=submit]').classList.add('elementoOculto');
+        }
+    })
 });

@@ -17,12 +17,7 @@
             </ul>
           </nav>
     </header>
-    <div class="mensajeAlerta" id="mensajeAlerta">
-        <p>Usted va a comprar un total de <span id="cantidadProductos">0</span> por $ <span id="importeTotal">0</span></p>
-        <p>Este es el mensaje de error</p>
-    </div>
     <div class="promociones">
-
         <div class="promocionesProductos">
             <div class="gifCaballo">
                 <img src="../imagenes/caballoGalopando.gif" alt="Caballo galopando">
@@ -46,10 +41,34 @@
                 <img src="../imagenes/30descuento.jpg" alt="30% de descuento">
             </div>
         </div>
-
     </div>
     <main>
         <form>
+            <!-- Modal de Compra -->
+            <div id="modal" class="modal">
+                <!-- Contenido del Modal -->
+                <div class="modalContenido">
+                    <div class="modalEncabezado">
+                        <span id="spanCerrar" class="cerrar">&times;</span>
+                        <h2>Detalle de la Compra</h2>
+                    </div>
+                    <div class="modalCuerpo">
+                        <!-- Plantilla para el detalle de un producto -->
+                        <template id="templateDetalleProducto">
+                            <div class="detalleProducto">
+                                <span class="detalleCantProd"></span> x <span class="detalleNombProd"></span><span class="detalleSubtotal"></span><span class="mensajeError elementoOculto"> Stock Insuficiente</span>
+                            </div>
+                            </template>              
+                        <div id="detalleCompra">
+                            <!-- Detalle de la compra. Se completa por JS-->
+                        </div>          
+                    </div>
+                    <div class="modalPie">
+                        <p><span id="cantidadProductos">0</span> productos, Total: <span id="importeTotal">$0.0</span></p>
+                        <input id="btnComprar" type="submit" value="Comprar">
+                    </div>
+                </div>
+            </div>
             <section class="seccionProductos">            
                 <template id="producto">
                    <div class="producto">
@@ -68,11 +87,10 @@
                     </div>
                 </template> 
             </section>
-            <div input  class="botonComprar">        
-                <input type="submit" value="">
-            </div>
+            <!-- <div class="botonComprar">         -->
+                <input id="btnDetalleCompra" class="botonComprar" type="button" value="">
+            <!-- </div> -->
         </form>
-
     </main>
     <footer class="footer">
             <div>
