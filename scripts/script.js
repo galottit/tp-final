@@ -9,7 +9,7 @@ productos.forEach((producto, codigo) => {
         const nuevaOferta = templateOferta.content.cloneNode(true);
         
         nuevaOferta.querySelector('div').addEventListener('click', ()=>{
-            location.href='/html/productos.html#'+codigo;
+            location.href='/html/productos.html#div'+codigo;
         });
 
         nuevaOferta.querySelector(".producto>div:nth-child(2)").textContent = producto.nombre;

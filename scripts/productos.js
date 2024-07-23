@@ -10,6 +10,7 @@ if ("content" in document.createElement("template")) {
     productos.forEach((producto, codigo) => {
         //Clono una nueva fila y la agrego a la tabla
         const nuevoProducto = templateProducto.content.cloneNode(true);
+        nuevoProducto.querySelector(".producto").setAttribute("id", "div"+codigo);
         nuevoProducto.querySelector(".producto>div:nth-child(2)").textContent = producto.nombre;
         nuevoProducto.querySelector(".producto>div:nth-child(3)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
         const imgProducto = nuevoProducto.querySelector(".producto>div>div:nth-child(2)>img");
