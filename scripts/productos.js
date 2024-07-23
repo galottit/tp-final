@@ -96,10 +96,6 @@ if ("content" in document.createElement("template")) {
     });
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 9dfffedcd770361161732137114c35113001540a
 // Agrego los manejadores de eventos a los botones de sumar
 document.querySelectorAll(".botonSumar, .botonRestar").forEach((value)=>{
     value.addEventListener("click", (event)=>{
@@ -127,7 +123,6 @@ function verificarCamabiosEnCantidades(inputElement){
         alert("poner un valor valido");      
     } else {
         inputElement.defaultValue = inputElement.value ;
-<<<<<<< HEAD
 
         //Recorrer form>inputs, sumar y multiplicar y colocar valores
         let inputs = inputElement.form.querySelectorAll("input[type=number]");
@@ -144,8 +139,6 @@ function verificarCamabiosEnCantidades(inputElement){
         //Modifico los span con las cantidades y suma total
         document.querySelector("#cantidadProductos").textContent = cantidadTotal;
         document.querySelector(".comprarTotal>span:nth-child(2)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(importeTotal);      
-=======
->>>>>>> 9dfffedcd770361161732137114c35113001540a
     }
 }
 
@@ -163,7 +156,6 @@ document.querySelector("form").addEventListener("submit", (event) => {
     divAviso.style.display= "flex";
     event.preventDefault(); // no se realiza el subbmit
 
-<<<<<<< HEAD
     inputs.forEach((element)=>{
         let indice = element.getAttribute("id");
         let cantidad = parseInt(element.value);            
@@ -172,18 +164,6 @@ document.querySelector("form").addEventListener("submit", (event) => {
                 console.log("producto "+indice+" fuera de stock");
                 mensajeError = true;            
             }
-=======
-    let inputs = document.querySelectorAll('.producto input[type=number]');
-    let cantidadTotal = 0;
-    let importeTotal = 0;
-    console.log(inputs); // voy viendo el input en la consola
-    inputs.forEach( (elemento)=> {
-        let cantidad = parseInt(elemento.value);
-        let id = elemento.getAttribute("id");
-        if(cantidad > 0){
-            cantidadTotal += cantidad;
-            importeTotal += (arrProductos[id][1] * cantidad);
->>>>>>> 9dfffedcd770361161732137114c35113001540a
         }
     });
     //document.querySelectorAll(".mensajeAlerta>span:nth-child(2)").textContent = cantidadTotal;
@@ -199,18 +179,11 @@ document.addEventListener('click', function(event) {
             document.getElementById('mensajeAlerta').style.display = 'none';
         }
     });
-<<<<<<< HEAD
   });
 
   // si apreto escape o enter se oculta de nuevo
   document.addEventListener('keydown', function(e) { //cuando presiono cualquier tecla
     if (e.key === 'Enter' || e.key === 'Escape') { // Si presiono letra esc o enter
-=======
-});
-// si apreto escape o enter se oculta de nuevo
-document.addEventListener('keydown', function(e) { //cuando presiono cualquier tecla
-if (e.key === 'Enter' || e.key === 'Escape') { // Si presiono letra esc o enter
->>>>>>> 9dfffedcd770361161732137114c35113001540a
         document.getElementById('mensajeAlerta').style.display = 'none';
     }
 });
