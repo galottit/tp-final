@@ -15,7 +15,7 @@ botonEnviar.addEventListener("click", () => {
 
     let blob = new Blob([formularioContacto], {type: "text/plain;charset=utf-8"}); // navegador
 
-    //Libreria FileSaver.js
+    //Libreria FileSaver.min.js
        saveAs(blob, "contact.txt");
        console.log(blob)
 })
