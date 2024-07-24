@@ -167,7 +167,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
                 prod.classList.toggle('stockError');
                 let msgError = prod.querySelector('.mensajeError');
                 msgError.classList.remove('elementoOculto');
-                msgError.textContent = "Stock Insuficiente ("+productos[id].stock+")";
+                msgError.textContent = "  Cantidad de productos supera el stock (Disponibles:  "+productos[id].stock+")";
                 event.target.querySelector('input[type=submit]').classList.add('elementoOculto');
             }
         });
