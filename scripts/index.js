@@ -17,9 +17,6 @@ productos.forEach((producto, codigo) => {
         imgProducto.setAttribute("src", "../imagenes/producto" + codigo + ".webp");
         imgProducto.setAttribute("alt", producto.nombre);
         nuevaOferta.querySelector(".cantidadProducto").setAttribute("id", codigo);    
-        
-        nuevaOferta.querySelector(".precioTachado").style.display = "flex";
-        nuevaOferta.querySelector(".precioTachado").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
         nuevaOferta.querySelector(".precioNormal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio * descuentoOferta);
         nuevaOferta.querySelector(".precioNormal").classList.add("precioConDescuento");
         
