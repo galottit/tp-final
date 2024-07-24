@@ -1,5 +1,6 @@
 "use strict";
 
+const descuentoOferta = 0.7;
 
 /* Agrega los productos a la pagina usando templates */
 //Verifico que el navegador soporte <template>
@@ -20,7 +21,7 @@ if ("content" in document.createElement("template")) {
         if(producto.oferta){
             nuevoProducto.querySelector(".precioTachado").style.display = "flex";
             nuevoProducto.querySelector(".precioTachado").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
-            nuevoProducto.querySelector(".precioNormal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio * 0.7);
+            nuevoProducto.querySelector(".precioNormal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio * descuentoOferta);
             nuevoProducto.querySelector(".precioNormal").classList.add("precioConDescuento");
         }
         else {
@@ -92,7 +93,7 @@ function agregarDetalleProducto(id, cantidad){
         //Calculo el precio y el descuento si así es necesario
         let subTotal = productos[id].precio*cantidad;
         if (productos[id].oferta){
-            subTotal*=0.7; // Aplico un descuento del 30%
+            subTotal*=descuentoOferta; // Aplico un descuento del 30%
         }
         nuevoProducto.querySelector(".detalleSubtotal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(subTotal);
         //Agrego el nodo nuevo
@@ -121,7 +122,11 @@ btnDetalleCompra.addEventListener("click", (ev)=>{
         let cantidad = parseInt(element.value);            
         if (cantidad>0){
             cantidadTotal += cantidad;
-            importeTotal += productos[id].precio * cantidad;
+            if (productos[id].oferta){
+                importeTotal += productos[id].precio * cantidad * descuentoOferta;
+            }else{
+                importeTotal += productos[id].precio * cantidad;
+            }            
             agregarDetalleProducto(id, cantidad); //Llama a la funcion que usa el template
         }
     });
