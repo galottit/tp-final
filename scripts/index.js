@@ -1,6 +1,5 @@
 "use strict";
 
-
 productos.forEach((producto, codigo) => {
     if (producto.oferta){       
         //Clono una nueva fila y la agrego a la tabla

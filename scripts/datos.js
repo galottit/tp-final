@@ -1,4 +1,3 @@
-
 "use strict";
 
 // Objeto con los datos de los productos
