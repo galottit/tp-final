@@ -2,7 +2,7 @@
 
 // Objeto con los datos de los productos
 let productos = [
-    {nombre: "Fideos Codito", precio: 20.00, stock: 8, oferta: false},
+    {nombre: "Fideos Codito", precio: 20.00, stock: 8, oferta: true},
     {nombre: "Fideos Moño", precio: 25.00, stock: 10, oferta: false},
     {nombre: "Fideos Tallarines", precio: 22.00, stock: 3, oferta: false},
     {nombre: "Arroz Fino Largo", precio: 28.00, stock: 5, oferta: false},
@@ -16,7 +16,7 @@ let productos = [
     {nombre: "Yogourt Bebible", precio: 45.70, stock: 1, oferta: true},
     {nombre: "Yogourt Natural", precio: 48.00, stock: 10, oferta: true},
     {nombre: "Queso Rayado", precio: 50.30, stock: 5, oferta: false},
-    {nombre: "Leche Larga Vida", precio: 52.60, stock: 2, oferta: true},
+    {nombre: "Leche Larga Vida", precio: 52.60, stock: 2, oferta: false},
     {nombre: "Lavandina", precio: 54.90, stock: 7, oferta: false},
     {nombre: "Desodorante de Pisos", precio: 57.20, stock: 6, oferta: false},
     {nombre: "Desengrasante", precio: 30.00, stock: 0, oferta: false},

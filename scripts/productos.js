@@ -8,15 +8,25 @@ if ("content" in document.createElement("template")) {
     const templateProducto = tablaProductos.querySelectorAll("template")[0];
 
     productos.forEach((producto, codigo) => {
+
         //Clono una nueva fila y la agrego a la tabla
         const nuevoProducto = templateProducto.content.cloneNode(true);
         nuevoProducto.querySelector(".producto").setAttribute("id", "div"+codigo);
         nuevoProducto.querySelector(".producto>div:nth-child(2)").textContent = producto.nombre;
-        nuevoProducto.querySelector(".producto>div:nth-child(3)").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
         const imgProducto = nuevoProducto.querySelector(".producto>div>div:nth-child(2)>img");
         imgProducto.setAttribute("src", "../imagenes/producto" + codigo + ".webp");
         imgProducto.setAttribute("alt", producto.nombre);
         nuevoProducto.querySelector(".producto>div:nth-child(4)>input").setAttribute("id", codigo);
+        if(producto.oferta){
+            console.log("el producto "+codigo+" esta de oferta");
+            nuevoProducto.querySelector(".producto>div:nth-child(3)>.precioTachado").style.display = "flex";
+            nuevoProducto.querySelector(".producto>div:nth-child(3)>.precioTachado").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
+            nuevoProducto.querySelector(".producto>div:nth-child(3)>.precioNormal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio * 0.7);
+            nuevoProducto.querySelector(".producto>div:nth-child(3)>.precioNormal").classList.add("precioConDescuento");
+        }
+        else {
+            nuevoProducto.querySelector(".producto>div:nth-child(3)>.precioNormal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
+        }                               
         tablaProductos.appendChild(nuevoProducto);
     });
 }
