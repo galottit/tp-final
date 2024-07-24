@@ -1,5 +1,7 @@
 "use strict";
 
+const descuentoOferta = 0.7; // defino un decuento del 30%
+
 // Objeto con los datos de los productos
 let productos = [
     {nombre: "Fideos Codito", precio: 20.00, stock: 8, oferta: true},

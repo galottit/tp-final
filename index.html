@@ -25,17 +25,25 @@
                     <img src="../imagenes/30descuento.jpg" alt="30% de descuento">
                 </div>
                 <section class="seccionPromociones">            
-                    <template id="promociones">
-                       <div class="producto">
-                            <div>
-                                <div>&nbsp;</div>
-                                <div><img src="" alt=""></div>
-                                <div>&nbsp;</div>
-                            </div>
-                            <div></div>
-                            <div></div>              
-                        </div>
-                    </template> 
+                    <template id="templateProducto">
+                        <div class="producto">
+                             <div>
+                                 <div>&nbsp;</div>
+                                 <div><img class="imagenProducto" src="" alt=""></div>
+                                 <div>&nbsp;</div>
+                             </div>
+                             <div class="nombreProducto"></div>
+                             <div class="precios">
+                                 <div class="precioTachado"></div>
+                                 <div class="precioNormal"></div>
+                             </div>
+                             <div>
+                                 <button type="button" class="botonRestar" name="botonRestar">-</button>
+                                 <input class="cantidadProducto" type="number" id="" min="0" max="99" value="0">
+                                 <button type="button" class="botonSumar" name="botonSumar">+</button>
+                             </div>                    
+                         </div>
+                     </template> 
                 </section>
                 <div class="gifCaballo">
                     <img src="../imagenes/caballoGalopando.gif" alt="Caballo galopando">
