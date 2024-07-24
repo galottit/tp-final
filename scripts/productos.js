@@ -150,6 +150,9 @@ window.onclick = function(event) {
 
 // Manejador de Evento del submit del formulario de compra
 document.querySelector("form").addEventListener("submit", (event) => {
+    //Detengo el envío del formulario
+    event.preventDefault();
+
     //Recorro el detalle ya generado
     const detalles = document.querySelectorAll('.detalleProducto');
     let error = false;
@@ -160,17 +163,24 @@ document.querySelector("form").addEventListener("submit", (event) => {
             if (cant > productos[id].stock){
                 error = true;
                 prod.classList.toggle('stockError');
-                prod.querySelector('.mensajeError').classList.remove('elementoOculto');
+                let msgError = prod.querySelector('.mensajeError');
+                msgError.classList.remove('elementoOculto');
+                msgError.textContent = "Stock Insuficiente ("+productos[id].stock+")";
                 event.target.querySelector('input[type=submit]').classList.add('elementoOculto');
             }
         });
-    }else{
-        //No hay elementos
-        error = true;
+        // Si no hay errores procedo a descontar el stock
+        if (!error){            
+            detalles.forEach((prod)=>{
+                let id = prod.getAttribute('data-id');
+                let cant = parseInt(prod.getAttribute('data-cantidad'));
+                productos[id].stock -= cant;
+            });
+            //Termino
+            alert("Gracias por su Compra");
+            document.getElementById("modal").style.display = "none";
+        }
     }
-    //Si hubo algún error detengo el submit
-    if (error) {
-        event.preventDefault();
-    }
+    
     
 });
