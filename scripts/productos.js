@@ -21,6 +21,10 @@ if ("content" in document.createElement("template")) {
             nuevoProducto.querySelector(".precioTachado").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
             nuevoProducto.querySelector(".precioNormal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio * descuentoOferta);
             nuevoProducto.querySelector(".precioNormal").classList.add("precioConDescuento");
+            const imgDescuento = nuevoProducto.querySelector(".imagenDescuento");
+            imgDescuento.classList.remove("elementoOculto");
+            imgDescuento.setAttribute("src", "../imagenes/30descuento2.PNG");
+            imgDescuento.setAttribute("alt", "30% de descuento");
         }
         else {
             nuevoProducto.querySelector(".precioNormal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);

@@ -224,3 +224,10 @@ input[type=number] {
 .precioConDescuento {
     color: green;
 }
+
+.imagenDescuento{
+    height: 80px;
+    width: 80px;
+    position: relative;
+    background-color: transparent;
+}
