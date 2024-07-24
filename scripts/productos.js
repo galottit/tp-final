@@ -1,6 +1,6 @@
 "use strict";
 
-const descuentoOferta = 0.7;
+const descuentoOferta = 0.7; // defino un decuento del 30%
 
 /* Agrega los productos a la pagina usando templates */
 //Verifico que el navegador soporte <template>
