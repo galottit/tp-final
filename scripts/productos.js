@@ -5,27 +5,26 @@
 //Verifico que el navegador soporte <template>
 if ("content" in document.createElement("template")) {
     const tablaProductos = document.querySelector('.seccionProductos');
-    const templateProducto = tablaProductos.querySelectorAll("template")[0];
+    const templateProducto = document.querySelector("#templateProducto");
 
     productos.forEach((producto, codigo) => {
 
         //Clono una nueva fila y la agrego a la tabla
         const nuevoProducto = templateProducto.content.cloneNode(true);
         nuevoProducto.querySelector(".producto").setAttribute("id", "div"+codigo);
-        nuevoProducto.querySelector(".producto>div:nth-child(2)").textContent = producto.nombre;
-        const imgProducto = nuevoProducto.querySelector(".producto>div>div:nth-child(2)>img");
+        nuevoProducto.querySelector(".nombreProducto").textContent = producto.nombre;
+        const imgProducto = nuevoProducto.querySelector(".imagenProducto");
         imgProducto.setAttribute("src", "../imagenes/producto" + codigo + ".webp");
         imgProducto.setAttribute("alt", producto.nombre);
-        nuevoProducto.querySelector(".producto>div:nth-child(4)>input").setAttribute("id", codigo);
+        nuevoProducto.querySelector(".cantidadProducto").setAttribute("id", codigo);
         if(producto.oferta){
-            console.log("el producto "+codigo+" esta de oferta");
-            nuevoProducto.querySelector(".producto>div:nth-child(3)>.precioTachado").style.display = "flex";
-            nuevoProducto.querySelector(".producto>div:nth-child(3)>.precioTachado").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
-            nuevoProducto.querySelector(".producto>div:nth-child(3)>.precioNormal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio * 0.7);
-            nuevoProducto.querySelector(".producto>div:nth-child(3)>.precioNormal").classList.add("precioConDescuento");
+            nuevoProducto.querySelector(".precioTachado").style.display = "flex";
+            nuevoProducto.querySelector(".precioTachado").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
+            nuevoProducto.querySelector(".precioNormal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio * 0.7);
+            nuevoProducto.querySelector(".precioNormal").classList.add("precioConDescuento");
         }
         else {
-            nuevoProducto.querySelector(".producto>div:nth-child(3)>.precioNormal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
+            nuevoProducto.querySelector(".precioNormal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
         }                               
         tablaProductos.appendChild(nuevoProducto);
     });
