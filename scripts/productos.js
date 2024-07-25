@@ -23,7 +23,7 @@ if ("content" in document.createElement("template")) {
             nuevoProducto.querySelector(".precioNormal").classList.add("precioConDescuento");
             const imgDescuento = nuevoProducto.querySelector(".imagenDescuento");
             imgDescuento.classList.remove("elementoOculto");
-            imgDescuento.setAttribute("src", "../imagenes/30descuento2.PNG");
+            imgDescuento.setAttribute("src", "/imagenes/30descuento2.png");
             imgDescuento.setAttribute("alt", "30% de descuento");
         }
         else {
