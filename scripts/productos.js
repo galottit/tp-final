@@ -72,8 +72,10 @@ function verificarCamabiosEnCantidades(inputElement){
     let btnDetalleCompra = document.querySelector('#btnDetalleCompra')
     if (hayProductosSeleccionados){
         btnDetalleCompra.classList.remove('elementoOculto');
+        btnDetalleCompra.classList.add('botonComprar');
     }else{
         btnDetalleCompra.classList.add('elementoOculto');
+        btnDetalleCompra.classList.remove('botonComprar');
     }
 }
 

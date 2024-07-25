@@ -189,7 +189,7 @@ main {
 }
 .promociones {
     display: flex;
-    animation: aparecerCaballo 5s;
+    animation: aparecerCaballo 2s;
 }
 @keyframes aparecerCaballo {
     0% {transform: translatex(100%);}

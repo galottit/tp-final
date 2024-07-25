@@ -112,6 +112,15 @@ input[type=number] {
         background-position: 40% 70%;
         background-repeat: no-repeat;
         border: 2px solid rgb(65, 11, 110);
+        animation-name: aparecerBotonComprar;
+        animation-duration: 1s;
+}
+
+
+/* Agrega una animación de entrada al modal */
+@keyframes aparecerBotonComprar {
+    0% {transform: translatex(100%);}
+    100% {transform: translateX(0px);}
 }
 
 .botonComprar:hover {
