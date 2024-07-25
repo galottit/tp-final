@@ -17,14 +17,14 @@ if ("content" in document.createElement("template")) {
         imgProducto.setAttribute("alt", producto.nombre);
         nuevoProducto.querySelector(".cantidadProducto").setAttribute("id", codigo);
         if(producto.oferta){
-            nuevoProducto.querySelector(".precioTachado").style.display = "flex";
-            nuevoProducto.querySelector(".precioTachado").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
-            nuevoProducto.querySelector(".precioNormal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio * descuentoOferta);
-            nuevoProducto.querySelector(".precioNormal").classList.add("precioConDescuento");
+            const precioTachado = nuevoProducto.querySelector(".precioTachado");
+            precioTachado.style.display = "flex";
+            precioTachado.textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
+            const precioNormal = nuevoProducto.querySelector(".precioNormal");
+            precioNormal.textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio * descuentoOferta);
+            precioNormal.classList.add("precioConDescuento");
             const imgDescuento = nuevoProducto.querySelector(".imagenDescuento");
             imgDescuento.classList.remove("elementoOculto");
-            imgDescuento.setAttribute("src", "/imagenes/30descuento2.png");
-            imgDescuento.setAttribute("alt", "30% de descuento");
         }
         else {
             nuevoProducto.querySelector(".precioNormal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(producto.precio);
