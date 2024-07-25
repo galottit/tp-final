@@ -105,16 +105,13 @@ function agregarDetalleProducto(id, cantidad){
 
 // Muestra el modal al hacer click en el boton de compra
 let btnDetalleCompra = document.getElementById("btnDetalleCompra");
-btnDetalleCompra.addEventListener("click", (ev)=>{
-    document.getElementById("modal").style.display = "block";
-
+btnDetalleCompra.addEventListener("click", (ev)=>{    
     //Elimino los elementos si los hay
     document.querySelectorAll('#detalleCompra .detalleProducto').forEach((element)=>{
         element.remove();
     });
     //Restauro la visibilidad del submit
-    document.querySelector('input[type=submit]').classList.remove('elementoOculto');
-
+    document.querySelector('input[type=submit]').classList.remove('elementoOculto');   
     //Recorro los input[number], sumar y multiplicar y colocar valores
     let inputs = document.querySelectorAll("input[type=number]");
     let importeTotal = 0;
@@ -132,10 +129,15 @@ btnDetalleCompra.addEventListener("click", (ev)=>{
             agregarDetalleProducto(id, cantidad); //Llama a la funcion que usa el template
         }
     });
-    
     //Modifico los span con las cantidades y suma total
     document.querySelector("#cantidadProductos").textContent = cantidadTotal;
     document.querySelector("#importeTotal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(importeTotal);      
+    // Si se agregaron detalles muestro el form
+    if (document.querySelectorAll('#detalleCompra .detalleProducto').length>0){
+        document.getElementById("modal").style.display = "block";
+    }else{
+        alert("Seleccione al ménos un producto.");
+    }
 });
 
 // Cuando el usuario clickea en el <span> (x), cierra el formulario modal
@@ -183,6 +185,4 @@ document.querySelector("form").addEventListener("submit", (event) => {
             document.getElementById("modal").style.display = "none";
         }
     }
-    
-    
 });
