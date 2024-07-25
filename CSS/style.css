@@ -58,12 +58,13 @@ footer {
     height: auto;
     width: auto;
     margin-top: 30px;
+    padding: 10px;
     border-radius: 10px;
     background-color: rgb(65, 11, 110);
 }
-footer> div {
+/* footer> div {
     max-width: 30%;
-}
+} */
 
 .contacto {
     width: 100%;
@@ -209,8 +210,26 @@ main {
     justify-content: space-between;
 }
 
-/* Estilo para los icones de redes en el footer */
+/* Estilos para el contenido de Redes en el footer */
 .redesIcono{
     height: 26px;
     width: 25px;
+}
+.redesHeader{
+    text-align: center;
+    font-size: 1.5rem;
+}
+.redesContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.redesContent div{
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
 }
