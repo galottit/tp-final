@@ -208,3 +208,9 @@ main {
     width: 100%;
     justify-content: space-between;
 }
+
+/* Estilo para los icones de redes en el footer */
+.redesIcono{
+    height: 25px;
+    width: 25px;
+}
