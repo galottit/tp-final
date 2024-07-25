@@ -125,8 +125,6 @@ input[type=number] {
     border: 4px solid rgb(65, 11, 110);
 }
 
-
-
 /* Fondo del modal */
 .modal {
     display: none;
@@ -184,8 +182,10 @@ input[type=number] {
 
 /* Cuerpo del Modal */
 .modalCuerpo {
-    padding: 2px 16px;
-    font-size: 1.rem;
+    padding: 5px;
+    background-color: #afa1a17d;
+    border-radius: 10px;
+    font-size: 1rem;
 }
 .detalleSubTotal {
     text-align: right;
