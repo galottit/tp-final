@@ -61,6 +61,20 @@ function verificarCamabiosEnCantidades(inputElement){
     } else {
         inputElement.defaultValue = inputElement.value ;
     }
+
+    //Verifico si hay productos seleccionados para mostrar/ocultar el botón de compra
+    let hayProductosSeleccionados = false;
+    document.querySelectorAll('input').forEach((input) => {
+        if (parseInt(input.value) > 0){
+            hayProductosSeleccionados = true;
+        };
+    });
+    let btnDetalleCompra = document.querySelector('#btnDetalleCompra')
+    if (hayProductosSeleccionados){
+        btnDetalleCompra.classList.remove('elementoOculto');
+    }else{
+        btnDetalleCompra.classList.add('elementoOculto');
+    }
 }
 
 // Agrega un manejador de eventos para cuando cambien los inputs de cantidad
@@ -104,8 +118,7 @@ function agregarDetalleProducto(id, cantidad){
 };
 
 // Muestra el modal al hacer click en el boton de compra
-let btnDetalleCompra = document.getElementById("btnDetalleCompra");
-btnDetalleCompra.addEventListener("click", (ev)=>{    
+document.getElementById("btnDetalleCompra").addEventListener("click", (ev)=>{    
     //Elimino los elementos si los hay
     document.querySelectorAll('#detalleCompra .detalleProducto').forEach((element)=>{
         element.remove();
@@ -132,12 +145,7 @@ btnDetalleCompra.addEventListener("click", (ev)=>{
     //Modifico los span con las cantidades y suma total
     document.querySelector("#cantidadProductos").textContent = cantidadTotal;
     document.querySelector("#importeTotal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(importeTotal);      
-    // Si se agregaron detalles muestro el form
-    if (document.querySelectorAll('#detalleCompra .detalleProducto').length>0){
-        document.getElementById("modal").style.display = "block";
-    }else{
-        alert("Seleccione al ménos un producto.");
-    }
+    document.getElementById("modal").style.display = "block";
 });
 
 // Cuando el usuario clickea en el <span> (x), cierra el formulario modal
