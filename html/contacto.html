@@ -16,56 +16,54 @@
           <li><a href="./contacto.html">Contacto</a></li>
         </ul>
       </nav>
-</header>
-    <main>
-        <div>
-          <h1>Contactate con nosotros</h1>
-          <h3>¿Tenés dudas o consultas sobre nuestros productos y servicios?</h3>
-          <h4>Te invitamos a que nos envíes tus comentarios, opiniones o sugerencias.</h4>
-          <img>
+  </header>
+  <main>
+      <div>
+        <h1>Contactate con nosotros</h1>
+        <h3>¿Tenés dudas o consultas sobre nuestros productos y servicios?</h3>
+        <h4>Te invitamos a que nos envíes tus comentarios, opiniones o sugerencias.</h4>
+        <img>
+      </div>
+      <div>
+        <form class="datosPersonales">
+          <h6>Los campos con * son obligatorios</h6>
+          <label for="Nombre"><span>* </span>Nombre:</label><input id="nombre" type="text" required>
+          <label for="apellido"><span>* </span>Apellido</label> <input id="apellido" type="text" required>
+          <label for="email"><span>* </span>Email</label><input id="email" type="email" required>
+          <label for="telefono"><span>* </span>Teléfono <span>sin 0 ni 15, ej: 2284123456</span></label><input id="telefono" type="tel" pattern="[0-9]{10}" required>
+          <label for="cajaConsulta"><span>* </span>Dejanos tu consulta: </label><textarea id="cajaConsulta" required></textarea>
+          <button id="botonEnviar" type="submit">Enviar</button>
+        </form>
+        <div class="infoGalope">
+          <p>MAil: contacto@algalope.com</p>
+          <p>Tel: 0800-333-4515</p>
+          <p>Whatsapp: 02284-888888</p>
+          <p>Direccion: belgrano 2850</p>
         </div>
-        <div>
-          <form class="datosPersonales">
-            <h6>Los campos con * son obligatorios</h6>
-            <label for="Nombre"><span>* </span>Nombre:</label><input id="nombre" type="text" required>
-            <label for="apellido"><span>* </span>Apellido</label> <input id="apellido" type="text" required>
-            <label for="email"><span>* </span>Email</label><input id="email" type="email" required>
-            <label for="telefono"><span>* </span>Teléfono <span>sin 0 ni 15, ej: 2284123456</span></label><input id="telefono" type="tel" pattern="[0-9]{10}" required>
-            <label for="cajaConsulta"><span>* </span>Dejanos tu consulta: </label><textarea id="cajaConsulta" required></textarea>
-            <button id="botonEnviar" type="submit">Enviar</button>
-          </form>
-          <div class="infoGalope">
-            <p>MAil: contacto@algalope.com</p>
-            <p>Tel: 0800-333-4515</p>
-            <p>Whatsapp: 02284-888888</p>
-            <p>Direccion: belgrano 2850</p>
-          </div>
+      </div>
+  </main>
+  <footer class="footer">        
+    <div class="redes">                
+        <div class="redesHeader">Seguinos en nuestras redes</div>
+        <div class="redesContent">
+            <div><img class="redesIcono" src="../imagenes/instagram-svgrepo-com.svg" alt="Instagram"><span>@superalgalope</span></div>
+            <div><img class="redesIcono" src="../imagenes/facebook-svgrepo-com.svg" alt="Facebook"><span>/superalgalope</span></div>
+            <div><img class="redesIcono" src="../imagenes/mail-svgrepo-com.svg" alt="Mail"><span>contacto@algalope.com</span></div>
+            <div><img class="redesIcono" src="../imagenes/phone-calling-svgrepo-com.svg" alt="Teléfono"><span>0800-333-4515</span></div>                
+            <div><img class="redesIcono" src="../imagenes/whatsapp-svgrepo-com.svg" alt="Whatsapp"><span>02284-888888</span></div>
+            <div><img class="redesIcono" src="../imagenes/address-location-map-svgrepo-com.svg" alt="Dirección"><span>Belgrano 2850 - Olavarría</span></div>
         </div>
-
-    </main>
-    <script type="text/javascript" src="../scripts/contacto.js"></script>
-    <script type="text/javascript" src="../scripts/FileSaver.min.js"></script>
+    </div>
+    <div class="defensaConsumidor">
+        <p>Defensa al consumidor</p>
+        <p>Dirección: Cnel. Suárez 2843</p>
+        <p>Teléfono: 02284 41-8477</p>
+    </div>
+  </footer>
+  <div class="derechos">
+    <p>© 2024 Derechos reservados - Pagina creada por Tomás Galotti y Aldo Lopez.</p>
+  </div>
+  <script type="text/javascript" src="../scripts/contacto.js"></script>
+  <script type="text/javascript" src="../scripts/FileSaver.min.js"></script>
 </body>
-<footer class="footer">
-  <div>
-      <p>Seguinos en nuestras redes</p>
-      <p>@superalgalope</p>
-      <p>Facebook/superalgalope</p>
-  </div>
-  <div>
-      <p>MAil: contacto@algalope.com</p>
-      <p>Tel: 0800-333-4515</p>
-      <p>Whatsapp: 02284-888888</p>
-      <p>Direccion: belgrano 2850</p>
-  </div>
-  <div">
-      <p>Defensa al consumidor</p>
-      <p>Dirección: Cnel. Suárez 2843</p>
-      <p>Teléfono: 02284 41-8477</p>
-      <p>Reclamos<a href="https://autogestion.produccion.gob.ar/consumidores"></a></p>
-  </div>
-</footer>
-<div class="derechos">
-  <p>© 2024 Derechos reservados - Pagina creada por Tomás Galotti y Aldo Lopez.</p>
-</div>
 </html>
