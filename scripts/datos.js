@@ -4,7 +4,7 @@ const descuentoOferta = 0.7; // defino un decuento del 30%
 
 // Objeto con los datos de los productos
 let productos = [
-    {nombre: "Fideos Codito", precio: 800, stock: 8, oferta: true},
+    {nombre: "Fideos Codito", precio: 800, stock: 8, oferta: false},
     {nombre: "Fideos Moño", precio: 850, stock: 10, oferta: false},
     {nombre: "Fideos Tallarines", precio: 500, stock: 3, oferta: false},
     {nombre: "Arroz Fino Largo", precio: 450, stock: 5, oferta: false},
