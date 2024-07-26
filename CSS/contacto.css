@@ -72,3 +72,12 @@ main>:nth-child(2){
     background-color: rgba(65, 11, 110, 0.8);
     cursor: pointer;
 }
+/*le saco margen inferior al texto de los campos obligatorios*/
+form>:nth-child(1) {
+    margin-bottom: 0px;
+    font-size: 0.6rem;
+}
+form span {
+    font-size: 0.6rem;
+    
+}

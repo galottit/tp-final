@@ -14,10 +14,17 @@ botonEnviar.addEventListener("click", () => {
     formularioContacto[2] = email.value;
     formularioContacto[3] = telefono.value;
     formularioContacto[4] = consulta.value;
-
-    let blob = new Blob([formularioContacto], {type: "text/plain;charset=utf-8"}); // navegador
-
-    //Libreria FileSaver.min.js
-       saveAs(blob, "contact.txt");
-       console.log(blob)
+    //compruebo si alguno de los campos está vacio
+    let datosCompletos = true;
+    for(let i=0; i<formularioContacto.length; i++){
+        if(formularioContacto[i].length == 0){
+            datosCompletos = false;
+        }
+    }
+    if(datosCompletos){
+        let blob = new Blob([formularioContacto], {type: "text/plain;charset=utf-8"}); // navegador
+        //Libreria FileSaver.min.js
+        saveAs(blob, "contact.txt");
+        console.log(blob)
+    }
 })

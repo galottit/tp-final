@@ -26,12 +26,13 @@
         </div>
         <div>
           <form class="datosPersonales">
-            <label for="nombre">Nombre</label> <input id="nombre" type="text">
-            <label for="apellido">Apellido</label> <input id="apellido" type="text">
-            <label for="email" type="email">Email</label><input id="email" type="text">
-            <label for="telefono">Teléfono </label><input id="telefono" type="text">
-            <label for="cajaConsulta">Dejanos tu consulta: </label><textarea id="cajaConsulta"></textarea>
-            <button id="botonEnviar">Enviar</button>
+            <h6>Los campos con * son obligatorios</h6>
+            <label for="Nombre"><span>* </span>Nombre:</label><input id="nombre" type="text" required>
+            <label for="apellido"><span>* </span>Apellido</label> <input id="apellido" type="text" required>
+            <label for="email" type="email"><span>* </span>Email</label><input id="email" type="text" required>
+            <label for="telefono" type="number"><span>* </span>Teléfono </label><input id="telefono" type="text" required>
+            <label for="cajaConsulta"><span>* </span>Dejanos tu consulta: </label><textarea id="cajaConsulta" required></textarea>
+            <button id="botonEnviar" type="submit">Enviar</button>
           </form>
           <div class="infoGalope">
             <p>MAil: contacto@algalope.com</p>
