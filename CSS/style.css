@@ -1,9 +1,9 @@
+/* Estilo de fuente raiz*/
 html {
     font-size: 18px;
     font-family: cursive;
     font-family: tahoma;
 }
-
 /* Cuerpo del documento */
 body{
     color: white;
