@@ -1,8 +1,9 @@
+/* Cuerpo del documento */
 body{
     color: white;
     background-color: rgb(184, 181, 185);
 }
-
+/* Header / Encabezado */
 header {
     display: flex;
     flex-direction:row;
@@ -14,17 +15,12 @@ header {
     margin-bottom: 20px;
     font-size: 1.2rem;
 }
-/* 
-.menu {
-
-} 
-*/
+/* Estilos para el menu del header */
 nav {
     display: flex;
     border-radius: 10px;
     overflow: hidden;    
 }
-
 .menu ul {
     display: flex;
     align-items: center;
@@ -34,11 +30,9 @@ nav {
     margin: 0px;
     overflow: hidden;
 }
-
 .menu li {
     background-color: rgb(65, 11, 110);
 }
-
 .menu li a {    
     color: white;
     text-align: center;
@@ -49,7 +43,7 @@ nav {
 .menu li a:hover {
     background-color:rgb(110, 107, 102);
 }
-
+/* Estilos para el Pie de página / Footer */
 footer {
     display: flex;
     flex-direction: row;
@@ -61,27 +55,22 @@ footer {
     border-radius: 10px;
     background-color: rgb(65, 11, 110);
 }
-/* footer> div {
-    max-width: 30%;
-} */
-
 footer img{
     margin: 3px;
 }
-
+/* Info de contacto */
 .contacto {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-content:space-around;
 }
-
+/* Estilos para las secciones y contenido del Home o pantalla inicial */
 main {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
-
 .seccion {
     height: 600px;
     background-repeat: no-repeat;
@@ -90,7 +79,6 @@ main {
     display: flex;
     align-items: center;
 }
-
 .seccionContenido {
     background-color: rgba(255, 255, 255, 0.781);
     border-radius: 10px;
@@ -103,18 +91,15 @@ main {
     padding-bottom: 35px;
     overflow: hidden;
 }
-
 .seccionContenido:hover {
     background-color: rgba(255, 255, 255, 1);
     border: 2px solid rgba(110, 107, 102, 0.4) ;
     
 }   
-
 .seccionContenido span {
     font-size: 1.5rem;
     font-weight: bolder;
 }
-
 .derechos {
     display: flex;
     align-items: center;
@@ -142,15 +127,12 @@ main {
     border-radius: 10px;
     height: 100%;
 }
-
 #vision {
     background-image: url("../imagenes/vision.webp");
 }
-
 #infoGeneral {
     background-image: url("../imagenes/gondola.jpg");
 }
-
 #descripcion {
     /* height: auto; */
     text-align: center;
@@ -164,7 +146,7 @@ main {
     background-color: white;
     
 }
-
+/* Estilos para el banner de promociones de productos */
 .promocionesProducto {
     display: flex; 
     flex-direction: row;
@@ -176,7 +158,6 @@ main {
     width: 80%;
     justify-content: space-around;
 }
-
 .gifCaballo {
     display: flex;
     flex-direction: column;
@@ -186,7 +167,6 @@ main {
     justify-content: center;
 
 }
-
 .gifCaballo img {
     width: 100%;
     object-fit: contain;
@@ -199,7 +179,6 @@ main {
     0% {transform: translatex(100%);}
     100% {transform: translateX(0px);}
 }
-
 .promocionesProductos {
     display: flex;
     flex-direction: row;
