@@ -69,13 +69,13 @@ function verificarCamabiosEnCantidades(inputElement){
             hayProductosSeleccionados = true;
         };
     });
-    let btnDetalleCompra = document.querySelector('#btnDetalleCompra')
+    let btnDetalleCompra = document.querySelector('.botonDetalleCompra')
     if (hayProductosSeleccionados){
         btnDetalleCompra.classList.remove('elementoOculto');
-        btnDetalleCompra.classList.add('animarBotonComprar');
+        btnDetalleCompra.classList.add('animarBotonDetalleCompra');
     }else{
         btnDetalleCompra.classList.add('elementoOculto');
-        btnDetalleCompra.classList.remove('animarBotonComprar');
+        btnDetalleCompra.classList.remove('animarBotonDetalleCompra');
     }
 }
 
@@ -120,7 +120,7 @@ function agregarDetalleProducto(id, cantidad){
 };
 
 // Muestra el modal al hacer click en el boton de compra
-document.getElementById("btnDetalleCompra").addEventListener("click", (ev)=>{    
+document.querySelector(".botonDetalleCompra").addEventListener("click", (ev)=>{    
     //Elimino los elementos si los hay
     document.querySelectorAll('#detalleCompra .detalleProducto').forEach((element)=>{
         element.remove();
