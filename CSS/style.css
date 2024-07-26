@@ -196,6 +196,8 @@ main {
 .redesIcono{
     height: 26px;
     width: 25px;
+    display: flex;
+    
 }
 .redesHeader{
     text-align: center;
@@ -205,7 +207,7 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly
 }
 .redesContent div{
     width: 35%;
@@ -213,5 +215,9 @@ main {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+}
+.redes {
+    display: flex;
+    flex-direction: column;
 }
