@@ -79,5 +79,15 @@ form>:nth-child(1) {
 }
 form span {
     font-size: 0.6rem;
-    
+}
+
+/* Se elimina spin button en Chrome, Safari, Edge, Opera */
+form input[type="number"]::-webkit-inner-spin-button, 
+.form input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Se elimina spin button en Firefox */
+form input[type=number] {
+    appearance: textfield;
 }
