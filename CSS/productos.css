@@ -73,9 +73,10 @@
 
 .producto>div:nth-child(4) input[type="number"]{
     text-align: center;
-    color: rgb(110, 107, 102);
+    color: whitesmoke;
     font-size: 1.2rem; 
     width: 35%;
+    background-color: rgb(65, 11, 110);
 }
 
 /* Se elimina spin button en Chrome, Safari, Edge, Opera */
@@ -88,13 +89,28 @@
 /* Se elimina spin button en Firefox */
 input[type=number] {
     appearance: textfield;
+    border: 0px;
 }
 
 /* Estilo para los botones para agregar/quitar productos */
 .producto button[type="button"]{
     background-color: rgb(65, 11, 110);
     color: whitesmoke;
-    
+    border: 0px;
+}
+.producto button[type="button"]:hover{
+    cursor:pointer; 
+}
+.producto button[type="button"]:active{
+    background-color: rgba(65, 11, 110, 0.76); 
+}
+.botonRestar{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+.botonSumar {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
 }
 
 /* Estilos para el boton flotante que accede a los detalles de compra */
