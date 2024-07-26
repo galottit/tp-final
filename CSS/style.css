@@ -1,6 +1,4 @@
 body{
-    /* display: flex;
-    flex-direction: column; */
     color: white;
     background-color: rgb(184, 181, 185);
 }
@@ -14,6 +12,7 @@ header {
     border-radius: 10px;
     background-color: rgb(65, 11, 110);
     margin-bottom: 20px;
+    font-size: 1.2rem;
 }
 /* 
 .menu {
@@ -65,6 +64,10 @@ footer {
 /* footer> div {
     max-width: 30%;
 } */
+
+footer img{
+    margin: 3px;
+}
 
 .contacto {
     width: 100%;

@@ -9,13 +9,6 @@
     justify-content: space-around;
 }
 
-/* .encabezado{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: nowrap;   
-} */
-
 .producto{
     display: flex;
     border: solid 5px;
