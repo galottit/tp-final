@@ -125,8 +125,9 @@ document.querySelector(".botonDetalleCompra").addEventListener("click", (ev)=>{
     document.querySelectorAll('#detalleCompra .detalleProducto').forEach((element)=>{
         element.remove();
     });
-    //Restauro la visibilidad del submit
-    document.querySelector('input[type=submit]').classList.remove('elementoOculto');   
+    //Restauro la visibilidad del pie del modal
+    const modalPie = document.getElementById('modalPie');
+    modalPie.classList.remove('elementoOculto');   
     //Recorro los input[number], sumar y multiplicar y colocar valores
     let inputs = document.querySelectorAll("input[type=number]");
     let importeTotal = 0;
@@ -180,7 +181,9 @@ document.querySelector("form").addEventListener("submit", (event) => {
                 let msgError = prod.querySelector('.mensajeError');
                 msgError.classList.remove('elementoOculto');
                 msgError.textContent = "  Cantidad de productos supera el stock (Disponibles:  "+productos[id].stock+")";
-                event.target.querySelector('input[type=submit]').classList.add('elementoOculto');
+                // oculto el pie del modal
+                const modalPie = document.getElementById('modalPie');
+                modalPie.classList.add('elementoOculto');
             }
         });
         // Si no hay errores procedo a descontar el stock

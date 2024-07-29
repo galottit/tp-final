@@ -38,34 +38,38 @@
                             <!-- Detalle de la compra. Se completa por JS-->
                         </div>          
                     </div>
-                    <div class="modalPie">
+                    <div class="modalPie" id="modalPie">
                         <div class="medioDePago">
                             <p><span id="cantidadProductos">0</span> productos, Total: <span id="importeTotal">$0.0</span>  </p>
-                            <label for="metodoPago">Seleccione de que manera desea abonar:</label>
-                            <select id="metodoPago">
-                              <option value=""></option>
-                              <option value="efectivo">Efectivo</option>
-                              <option value="transferencia">Transferencia</option>  
-                              <option value="tarjeta">Tarjeta</option>
-                            </select>
-                            <h5>Luego de precionar el boton comprar vaya hasta su cajero más cercano con el código: compra<span>01</span></h5>
-                            <h5>Realizar la transferencia a el alias: tomas.galotti y presentar comprobante en caja</h5>
-                            <label for="tipoTarjeta">Seleccione tipo de tarjeta:</label>
-                            <select id="tipoTarjeta">
-                                <option value=""></option>
-                                <option value="visa">Visa</option>
-                                <option value="master">MasterCard</option>  
-                            </select>
-                            <span>Ingrese los 16 numeros de su tarjeta</span>
-                            <input type="number" pattern="[0-9]{10}">
-                            <span>Ingrese nombre del titular</span>
-                            <input type="text" name="" id="">
-                            <span>Vencimiento</span>
-                            <input type="date">
-                            <span>Codigo de seguridad</span>
-                            <input type="password" pattern="[0-9]{3}">
+                            <div id="metodoPago"></div>
+                                <span>Seleccione de que manera desea abonar:</span>
+                                <input type="radio" id="efectivo" name="tipoCompra" value="efectivo" checked>
+                                <label for="efectivo">Efectivo</label>
+                                <input type="radio" id="Transferencia" name="tipoCompra" value="transferencia">
+                                <label for="transferencia">Transferencia</label>
+                                <input type="radio" id="tarjeta" name="tipoCompra" value="tarjeta">
+                                <label for="tarjeta">Tarjeta</label>
+                            </div>
+                            <span class="elementoOculto">Luego de presionar el botón comprar vaya hasta su cajero más cercano con el código: compra<span>01</span></span>
+                            <span class="elementoOculto">Realizar la transferencia a el alias: tomas.galotti y presentar comprobante en caja</span>
+                                <div class="elementoOculto">
+                                    <label for="tipoTarjeta">Seleccione tipo de tarjeta:</label>
+                                    <select id="tipoTarjeta">
+                                        <option value=""></option>
+                                        <option value="visa">Visa</option>
+                                        <option value="master">MasterCard</option>  
+                                    </select>
+                                    <span>Ingrese los 16 numeros de su tarjeta</span>
+                                    <input type="number" pattern="[0-9]{10}">
+                                    <span>Ingrese nombre del titular</span>
+                                    <input type="text" name="" id="">
+                                    <span>Vencimiento</span>
+                                    <input type="date">
+                                    <span>Codigo de seguridad</span>
+                                    <input type="password" pattern="[0-9]{3}">
+                                </div>
+                            <input id="btnFinalizarComprar" type="submit" value="Comprar">
                         </div>
-                        <input id="btnFinalizarComprar" type="submit" value="Comprar">
                     </div>
                 </div>
             </div>

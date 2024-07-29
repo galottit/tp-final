@@ -220,9 +220,9 @@ input[type=number] {
     padding: 2px 16px;
     color: white;
     flex-direction: row;
-    align-items: baseline;
     font-size: 1.5rem;
     justify-content: space-evenly;
+    align-items: flex-end;
 }
 /* .modalPie input{
     float: right;
@@ -257,6 +257,7 @@ input[type=number] {
 }
 .elementoOculto{
     visibility: hidden;
+    display: none;
 }
 
 /* estilos de productos en oferta */
