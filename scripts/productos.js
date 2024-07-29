@@ -1,4 +1,5 @@
 "use strict";
+let numeroCompra = 1;
 
 /* Agrega los productos a la pagina usando templates */
 //Verifico que el navegador soporte <template>
@@ -38,7 +39,7 @@ if ("content" in document.createElement("template")) {
     });
 }
 
-// Agrego los manejadores de eventos a los botones de sumar
+// Agrego los manejadores de eventos a los botones de sumar y restar
 document.querySelectorAll(".botonSumar, .botonRestar").forEach((value)=>{
     value.addEventListener("click", (event)=>{
         let input = event.target.parentElement.querySelector('input');
@@ -154,6 +155,11 @@ document.querySelector(".botonDetalleCompra").addEventListener("click", (ev)=>{
     document.querySelector("#cantidadProductos").textContent = cantidadTotal;
     document.querySelector("#importeTotal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(importeTotal);      
     document.getElementById("modal").style.display = "block";
+    if (numeroCompra < 10){
+        document.querySelector("#numeroCompra").textContent =" 0"+ numeroCompra;
+    } else {
+        document.querySelector("#numeroCompra").textContent =" "+ numeroCompra;
+    }
 });
 
 // Cuando el usuario clickea en el <span> (x), cierra el formulario modal
@@ -200,6 +206,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
             });
             //Termino
             alert("Gracias por su Compra");
+            simularRecargarPagina();
             document.getElementById("modal").style.display = "none";
         }
     }
@@ -237,3 +244,24 @@ tarjeta.addEventListener('change', () => {
         input.toggleAttribute("required", true);
     })
 });
+
+function simularRecargarPagina() {
+     //recorro todos los inputs y los vuelvo a 0
+    const inputs = document.querySelectorAll('.cantidadProducto');
+    inputs.forEach(input => {
+        input.value = 0;
+        verificarCamabiosEnCantidades(input);
+    });
+    //llevo la pagina al principio
+    window.scrollTo({ top: 0, behavior: 'smooth' }); //voy hacia arriba de forma suave
+    numeroCompra++;
+    const stock = document.querySelectorAll('.stockProducto');
+    stock.forEach((element, indice) => { //recorro todos los stock y los recargo con el stock actual
+        if(productos[indice].stock == 0){
+            element.textContent = "Sin stock";
+        } else {
+            element.textContent = productos[indice].stock;
+        }
+    });
+}
+
