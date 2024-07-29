@@ -59,6 +59,9 @@
 .producto>div:nth-child(2){
     height: 15%;
     font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .producto>div:nth-child(3){
     height: 15%;
@@ -79,7 +82,13 @@
     font-size: 1.2rem; 
     background-color: rgb(65, 11, 110);
 }
-
+.stockProducto {
+    font-size: 0.8rem;
+    color:white;
+    background-color: rgb(110, 107, 102);
+    border-radius: 10px;
+    width: 90px;
+}
 /* Se elimina spin button en Chrome, Safari, Edge, Opera */
 .producto>div:nth-child(4) input[type="number"]::-webkit-inner-spin-button, 
 .producto>div:nth-child(4) input[type="number"]::-webkit-outer-spin-button { 

@@ -12,6 +12,11 @@ if ("content" in document.createElement("template")) {
         const nuevoProducto = templateProducto.content.cloneNode(true);
         nuevoProducto.querySelector(".producto").setAttribute("id", "div"+codigo);
         nuevoProducto.querySelector(".nombreProducto").textContent = producto.nombre;
+        if(producto.stock == 0){
+            nuevoProducto.querySelector(".stockProducto").textContent = "Sin stock";
+        } else {
+            nuevoProducto.querySelector(".stockProducto").textContent = "Stock: " + producto.stock;
+        }
         const imgProducto = nuevoProducto.querySelector(".imagenProducto");
         imgProducto.setAttribute("src", "../imagenes/producto" + codigo + ".webp");
         imgProducto.setAttribute("alt", producto.nombre);
