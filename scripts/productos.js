@@ -244,7 +244,7 @@ tarjeta.addEventListener('change', () => {
         input.toggleAttribute("required", true);
     })
 });
-
+//simulo que recargo la página luego de apretar el boton de comprar
 function simularRecargarPagina() {
      //recorro todos los inputs y los vuelvo a 0
     const inputs = document.querySelectorAll('.cantidadProducto');

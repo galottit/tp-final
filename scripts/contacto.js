@@ -1,14 +1,12 @@
 "use strict";
 
-let nombre = document.getElementById("nombre");
+let nombre = document.getElementById("nombre"); //creo las vaiables que voy a guardar
 let apellido = document.getElementById("apellido");
 let email = document.getElementById("email");
 let telefono = document.getElementById("telefono");
 let consulta = document.getElementById("cajaConsulta");
 let botonEnviar = document.getElementById("botonEnviar");
 let formularioContacto = [];
-
-
 
 document.querySelector("form").addEventListener("submit", (event) => {
     formularioContacto[0] = nombre.value;
