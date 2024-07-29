@@ -199,3 +199,36 @@ document.querySelector("form").addEventListener("submit", (event) => {
         }
     }
 });
+
+//accionas a ejecutar cuando selecciono método de pago
+const efectivo = document.getElementById('efectivo');
+const transferencia = document.getElementById('transferencia');
+const tarjeta = document.getElementById('tarjeta');
+const spanEfectivo = document.getElementById('spanEfectivo');
+const spanTransferencia = document.getElementById('spanTransferencia');
+const divTarjeta = document.getElementById('divTarjeta');
+
+efectivo.addEventListener('change', () => {
+    spanEfectivo.classList.remove('elementoOculto');
+    spanTransferencia.classList.add('elementoOculto');
+    divTarjeta.classList.add('elementoOculto');
+    divTarjeta.querySelectorAll('input').forEach((input) => {
+        input.toggleAttribute("required", false);
+    })
+});
+transferencia.addEventListener('change', () => {
+    spanEfectivo.classList.add('elementoOculto');
+    spanTransferencia.classList.remove('elementoOculto');
+    divTarjeta.classList.add('elementoOculto');
+    divTarjeta.querySelectorAll('input').forEach((input) => {
+        input.toggleAttribute("required", false);
+    })
+});
+tarjeta.addEventListener('change', () => {
+    spanEfectivo.classList.add('elementoOculto');
+    spanTransferencia.classList.add('elementoOculto');
+    divTarjeta.classList.remove('elementoOculto');
+    divTarjeta.querySelectorAll('input').forEach((input) => {
+        input.toggleAttribute("required", true);
+    })
+});

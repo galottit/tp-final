@@ -33,42 +33,47 @@
                             <div class="detalleProducto">
                                 <span class="detalleCantProd"></span> x <span class="detalleNombProd"></span>  <span class="detalleSubtotal"></span><span class="mensajeError elementoOculto">  Stock Insuficiente</span>
                             </div>
-                            </template>              
+                        </template>              
                         <div id="detalleCompra">
                             <!-- Detalle de la compra. Se completa por JS-->
                         </div>          
                     </div>
                     <div class="modalPie" id="modalPie">
                         <div class="medioDePago">
-                            <p><span id="cantidadProductos">0</span> productos, Total: <span id="importeTotal">$0.0</span>  </p>
-                            <div id="metodoPago"></div>
-                                <span>Seleccione de que manera desea abonar:</span>
-                                <input type="radio" id="efectivo" name="tipoCompra" value="efectivo" checked>
-                                <label for="efectivo">Efectivo</label>
-                                <input type="radio" id="Transferencia" name="tipoCompra" value="transferencia">
-                                <label for="transferencia">Transferencia</label>
-                                <input type="radio" id="tarjeta" name="tipoCompra" value="tarjeta">
-                                <label for="tarjeta">Tarjeta</label>
-                            </div>
-                            <span class="elementoOculto">Luego de presionar el botón comprar vaya hasta su cajero más cercano con el código: compra<span>01</span></span>
-                            <span class="elementoOculto">Realizar la transferencia a el alias: tomas.galotti y presentar comprobante en caja</span>
-                                <div class="elementoOculto">
+                            <div id="pieModalIzquierda">
+                                <div id="metodoPago">
+                                    <span>Seleccione de que manera desea abonar:</span>
+                                    <div>
+                                        <input type="radio" id="efectivo" name="tipoCompra" value="efectivo" checked>
+                                        <label for="efectivo">Efectivo</label>
+                                        <input type="radio" id="transferencia" name="tipoCompra" value="transferencia">
+                                        <label for="transferencia">Transferencia</label>
+                                        <input type="radio" id="tarjeta" name="tipoCompra" value="tarjeta">
+                                        <label for="tarjeta">Tarjeta</label>
+                                    </div>
+                                </div>
+                                <span id="spanEfectivo">Luego de presionar el botón comprar vaya hasta su cajero más cercano con el código: compra<span>01</span>.</span>
+                                <span class="elementoOculto" id="spanTransferencia">Realizar la transferencia a el alias: super.algalope y presentar comprobante en caja.</span>
+                                <div id="divTarjeta" class="elementoOculto">
                                     <label for="tipoTarjeta">Seleccione tipo de tarjeta:</label>
                                     <select id="tipoTarjeta">
-                                        <option value=""></option>
                                         <option value="visa">Visa</option>
                                         <option value="master">MasterCard</option>  
                                     </select>
                                     <span>Ingrese los 16 numeros de su tarjeta</span>
-                                    <input type="number" pattern="[0-9]{10}">
+                                    <input type="text" maxlength="16" pattern="[0-9]{16}">
                                     <span>Ingrese nombre del titular</span>
-                                    <input type="text" name="" id="">
+                                    <input type="text">
                                     <span>Vencimiento</span>
-                                    <input type="date">
+                                    <input type="month">
                                     <span>Codigo de seguridad</span>
-                                    <input type="password" pattern="[0-9]{3}">
+                                    <input type="password" pattern="[0-9]{3}" maxlength="3">
                                 </div>
-                            <input id="btnFinalizarComprar" type="submit" value="Comprar">
+                            </div>
+                            <div id="precioFinal">
+                                <p><span id="cantidadProductos">0</span> productos, Total: <span id="importeTotal">$0.0</span>  </p>
+                                <input id="btnFinalizarComprar" type="submit" value="Comprar">
+                            </div>
                         </div>
                     </div>
                 </div>
