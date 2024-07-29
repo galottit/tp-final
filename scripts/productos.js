@@ -260,7 +260,7 @@ function simularRecargarPagina() {
         if(productos[indice].stock == 0){
             element.textContent = "Sin stock";
         } else {
-            element.textContent = productos[indice].stock;
+            element.textContent = "Stock: "+productos[indice].stock;
         }
     });
 }
