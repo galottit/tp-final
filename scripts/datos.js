@@ -54,12 +54,4 @@ let productos = [
     {nombre: "Galletitas Secas", precio: 1800, stock: 8, oferta: false},
     {nombre: "Galletitas Integrales", precio: 2300, stock: 5, oferta: false},
     {nombre: "Tostadas", precio: 2300, stock: 3, oferta: false}
-]
-/*
-// Agrega {cantidadProductosEnPromocion} ofertas al azar
-const cantidadProductosEnPromocion = 4;
-for (let i = 0; i < cantidadProductosEnPromocion; i++) {
-    let indice = (Math.floor(Math.random() * (productos.length + 1)));
-    productos[indice].oferta = true;
-}
-*/
+];
