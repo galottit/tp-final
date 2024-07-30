@@ -27,6 +27,7 @@ nav {
     border-radius: 10px;
     overflow: hidden;    
 }
+/* Estilo de las listas (lugar donde van los botones del menu) */
 .menu ul {
     display: flex;
     align-items: center;
@@ -36,9 +37,11 @@ nav {
     margin: 0px;
     overflow: hidden;
 }
+/* Estilo de los botones del menu */
 .menu li {
     background-color: rgb(65, 11, 110);
 }
+/* Estilo de la etiqueta a (el enlace a otra página)*/
 .menu li a {    
     color: white;
     text-align: center;
@@ -46,6 +49,7 @@ nav {
     text-decoration: none;
     transition: background-color .5s ease;
 }
+/* Etiqueta a cuando se le pasa el mouse por arriba */
 .menu li a:hover {
     background-color:rgb(110, 107, 102);
 }
@@ -61,8 +65,37 @@ footer {
     border-radius: 10px;
     background-color: rgb(65, 11, 110);
 }
+.redesHeader{
+    text-align: center;
+    font-size: 1.5rem;
+}
+.redesContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly
+}
+.redesContent div{
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.redes {
+    display: flex;
+    flex-direction: column;
+}
 footer img{
     margin: 3px;
+}
+.derechos {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
 }
 /* Info de contacto */
 .contacto {
@@ -100,18 +133,10 @@ main {
 .seccionContenido:hover {
     background-color: rgba(255, 255, 255, 1);
     border: 2px solid rgba(110, 107, 102, 0.4) ;
-    
 }   
 .seccionContenido span {
     font-size: 1.5rem;
     font-weight: bolder;
-}
-.derechos {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
 }
 .seccionContenidoHistoria {
     background-color: rgba(255, 255, 255, 0.781);
@@ -125,13 +150,9 @@ main {
     padding-bottom: 35px;
     overflow: hidden;
 }
+/* Imagenes de fondo para los sectores */
 #historia {
     background-image: url("../imagenes/barco.jpg");
-}
-#historiaCompleta {
-    background-image: url("../imagenes/barco.jpg");
-    border-radius: 10px;
-    height: 100%;
 }
 #vision {
     background-image: url("../imagenes/vision.webp");
@@ -140,7 +161,6 @@ main {
     background-image: url("../imagenes/gondola.jpg");
 }
 #descripcion {
-    /* height: auto; */
     text-align: center;
     font-size: large;
     border-top-left-radius: 10px;
@@ -149,14 +169,12 @@ main {
     margin-bottom: 0px;
     margin-top: 50px;
     color:rgb(110, 107, 102);
-    background-color: white;
-    
+    background-color: white;  
 }
 /* Estilos para el banner de promociones de productos */
 .promocionesProducto {
     display: flex; 
     flex-direction: row;
-
 }
 .seccionPromociones {
     display: flex;
@@ -171,7 +189,6 @@ main {
     width: 10%;
     align-items: center;
     justify-content: center;
-
 }
 .gifCaballo img {
     width: 100%;
@@ -179,11 +196,10 @@ main {
 }
 .promociones {
     display: flex;
-    animation: aparecerCaballo 2s;
+    animation: aparecerCaballo 2s; /* Le agrego animación con keyframes*/
 }
 @keyframes aparecerCaballo {
-    0% {transform: translatex(100%);}
-    100% {transform: translateX(0px);}
+    0% {transform: translatex(100%);} /* arranco desde 0% y muevo el div por el eje x hasta el 100% */
 }
 .promocionesProductos {
     display: flex;
@@ -197,33 +213,15 @@ main {
     width: 100%;
     justify-content: space-between;
 }
-
 /* Estilos para el contenido de Redes en el footer */
 .redesIcono{
     height: 26px;
     width: 25px;
     display: flex;
-    
 }
-.redesHeader{
-    text-align: center;
-    font-size: 1.5rem;
-}
-.redesContent {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly
-}
-.redesContent div{
-    width: 35%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: nowrap;
-}
-.redes {
-    display: flex;
-    flex-direction: column;
+/* Este id es solo para página extracon la historia completa */
+#historiaCompleta {
+    background-image: url("../imagenes/barco.jpg");
+    border-radius: 10px;
+    height: 100%;
 }
