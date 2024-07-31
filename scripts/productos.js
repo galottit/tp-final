@@ -1,4 +1,5 @@
 "use strict";
+let numeroCompra = 1;
 
 /* Agrega los productos a la pagina usando templates */
 //Verifico que el navegador soporte <template>
@@ -12,6 +13,11 @@ if ("content" in document.createElement("template")) {
         const nuevoProducto = templateProducto.content.cloneNode(true);
         nuevoProducto.querySelector(".producto").setAttribute("id", "div"+codigo);
         nuevoProducto.querySelector(".nombreProducto").textContent = producto.nombre;
+        if(producto.stock == 0){
+            nuevoProducto.querySelector(".stockProducto").textContent = "Sin stock";
+        } else {
+            nuevoProducto.querySelector(".stockProducto").textContent = "Stock: " + producto.stock;
+        }
         const imgProducto = nuevoProducto.querySelector(".imagenProducto");
         imgProducto.setAttribute("src", "../imagenes/producto" + codigo + ".webp");
         imgProducto.setAttribute("alt", producto.nombre);
@@ -33,7 +39,7 @@ if ("content" in document.createElement("template")) {
     });
 }
 
-// Agrego los manejadores de eventos a los botones de sumar
+// Agrego los manejadores de eventos a los botones de sumar y restar
 document.querySelectorAll(".botonSumar, .botonRestar").forEach((value)=>{
     value.addEventListener("click", (event)=>{
         let input = event.target.parentElement.querySelector('input');
@@ -125,8 +131,9 @@ document.querySelector(".botonDetalleCompra").addEventListener("click", (ev)=>{
     document.querySelectorAll('#detalleCompra .detalleProducto').forEach((element)=>{
         element.remove();
     });
-    //Restauro la visibilidad del submit
-    document.querySelector('input[type=submit]').classList.remove('elementoOculto');   
+    //Restauro la visibilidad del pie del modal
+    const modalPie = document.getElementById('modalPie');
+    modalPie.classList.remove('elementoOculto');   
     //Recorro los input[number], sumar y multiplicar y colocar valores
     let inputs = document.querySelectorAll("input[type=number]");
     let importeTotal = 0;
@@ -148,6 +155,11 @@ document.querySelector(".botonDetalleCompra").addEventListener("click", (ev)=>{
     document.querySelector("#cantidadProductos").textContent = cantidadTotal;
     document.querySelector("#importeTotal").textContent = new Intl.NumberFormat('es-AR', { style: "currency", currency: "ARS" }).format(importeTotal);      
     document.getElementById("modal").style.display = "block";
+    if (numeroCompra < 10){
+        document.querySelector("#numeroCompra").textContent =" 0"+ numeroCompra;
+    } else {
+        document.querySelector("#numeroCompra").textContent =" "+ numeroCompra;
+    }
 });
 
 // Cuando el usuario clickea en el <span> (x), cierra el formulario modal
@@ -180,7 +192,9 @@ document.querySelector("form").addEventListener("submit", (event) => {
                 let msgError = prod.querySelector('.mensajeError');
                 msgError.classList.remove('elementoOculto');
                 msgError.textContent = "  Cantidad de productos supera el stock (Disponibles:  "+productos[id].stock+")";
-                event.target.querySelector('input[type=submit]').classList.add('elementoOculto');
+                // oculto el pie del modal
+                const modalPie = document.getElementById('modalPie');
+                modalPie.classList.add('elementoOculto');
             }
         });
         // Si no hay errores procedo a descontar el stock
@@ -192,7 +206,62 @@ document.querySelector("form").addEventListener("submit", (event) => {
             });
             //Termino
             alert("Gracias por su Compra");
+            simularRecargarPagina();
             document.getElementById("modal").style.display = "none";
         }
     }
 });
+
+//accionas a ejecutar cuando selecciono método de pago
+const efectivo = document.getElementById('efectivo');
+const transferencia = document.getElementById('transferencia');
+const tarjeta = document.getElementById('tarjeta');
+const spanEfectivo = document.getElementById('spanEfectivo');
+const spanTransferencia = document.getElementById('spanTransferencia');
+const divTarjeta = document.getElementById('divTarjeta');
+
+efectivo.addEventListener('change', () => {
+    spanEfectivo.classList.remove('elementoOculto');
+    spanTransferencia.classList.add('elementoOculto');
+    divTarjeta.classList.add('elementoOculto');
+    divTarjeta.querySelectorAll('input').forEach((input) => {
+        input.toggleAttribute("required", false);
+    })
+});
+transferencia.addEventListener('change', () => {
+    spanEfectivo.classList.add('elementoOculto');
+    spanTransferencia.classList.remove('elementoOculto');
+    divTarjeta.classList.add('elementoOculto');
+    divTarjeta.querySelectorAll('input').forEach((input) => {
+        input.toggleAttribute("required", false);
+    })
+});
+tarjeta.addEventListener('change', () => {
+    spanEfectivo.classList.add('elementoOculto');
+    spanTransferencia.classList.add('elementoOculto');
+    divTarjeta.classList.remove('elementoOculto');
+    divTarjeta.querySelectorAll('input').forEach((input) => {
+        input.toggleAttribute("required", true);
+    })
+});
+//simulo que recargo la página luego de apretar el boton de comprar
+function simularRecargarPagina() {
+     //recorro todos los inputs y los vuelvo a 0
+    const inputs = document.querySelectorAll('.cantidadProducto');
+    inputs.forEach(input => {
+        input.value = 0;
+        verificarCamabiosEnCantidades(input);
+    });
+    //llevo la pagina al principio
+    window.scrollTo({ top: 0, behavior: 'smooth' }); //voy hacia arriba de forma suave
+    numeroCompra++;
+    const stock = document.querySelectorAll('.stockProducto');
+    stock.forEach((element, indice) => { //recorro todos los stock y los recargo con el stock actual
+        if(productos[indice].stock == 0){
+            element.textContent = "Sin stock";
+        } else {
+            element.textContent = "Stock: "+productos[indice].stock;
+        }
+    });
+}
+

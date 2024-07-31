@@ -1,7 +1,9 @@
+/* Estilos para el cuerpo */
 main {
     display: flex;
     flex-direction: column;
 }
+/* Hijo donde va la imagen */
 main>:nth-child(1) {
     background-image: url("../imagenes/caballosFondo2.jpg");
     background-size: 100%;
@@ -23,7 +25,7 @@ main>:nth-child(1) h4{
     margin: 0px;
     font-size: 0.8rem;
 }
-
+/* Hijo donde va el formulario */
 main>:nth-child(2){
     display: flex;
     flex-direction: row;
@@ -34,25 +36,16 @@ main>:nth-child(2){
     flex-direction: column;
     font-size: 1.2rem;
     width: 40%;
-
 }
 .datosPersonales input{
-
     border-radius: 5px;
     height: 20px;
+    border: 0.5px solid rgb(65, 11, 110);
 }
 #cajaConsulta {
     height: 200px;
     border-radius: 10px;
-    
-}
-
-.infoGalope {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 40%;
-    justify-content: center;
+    border: 0.5px solid rgb(65, 11, 110);
 }
 #botonEnviar{
     width: 100%;
@@ -66,7 +59,6 @@ main>:nth-child(2){
     font-size: 1.0rem;
     font-weight: 700;
     transition: background-color .5s ease;
-
 }
 #botonEnviar:hover {
     background-color: rgba(65, 11, 110, 0.8);
@@ -77,10 +69,10 @@ form>:nth-child(1) {
     margin-bottom: 0px;
     font-size: 0.6rem;
 }
+/* Cambio el tamaño de la letra con la explicación */
 form span {
     font-size: 0.6rem;
 }
-
 /* Se elimina spin button en Chrome, Safari, Edge, Opera */
 form input[type="number"]::-webkit-inner-spin-button, 
 .form input[type="number"]::-webkit-outer-spin-button { 

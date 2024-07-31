@@ -1,16 +1,14 @@
-
+/* Estilo para la seccion de productos y los div que lo muestran*/
 .seccionProductos {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* background-color:rgb(110, 107, 102); */
     overflow: hidden;
     color: black;
     justify-content: space-around;
     padding-left: 120px;
     padding-right: 120px;
 }
-
 .producto{
     display: flex;
     border: solid 5px;
@@ -34,7 +32,7 @@
     background-color: rgba(255, 255, 255, 1);
     border: 5px solid rgba(110, 107, 102, 0.4) ;
 }   
-
+/* Hijo que contiene la imagen */
 .producto>div:nth-child(1){
     display: flex;
     flex-direction: row;
@@ -50,49 +48,54 @@
 .producto>div:nth-child(1)>div:nth-child(2)>img{
     width: 100%;
     object-fit: contain;
-}
-
-.producto>div>div:nth-child(2)>img{
     height: 100%;
 }
-
+/* estilo del hijo donde va el nombre y el stock */
 .producto>div:nth-child(2){
     height: 15%;
     font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+.stockProducto {
+    font-size: 0.8rem;
+    color:white;
+    background-color: rgb(110, 107, 102);
+    border-radius: 10px;
+    width: 90px;
+}
+/* Estilo donde está el precio */
 .producto>div:nth-child(3){
     height: 15%;
     text-align: center;
     color: rgb(110, 107, 102);
     font-size: 1.6rem;
 }
+/* Estilo donde está la cantidad */
 .producto>div:nth-child(4){
     height: 10%;
     display: flex;
     flex-direction: row;
     justify-content: center;   
 }
-
 .producto>div:nth-child(4) input[type="number"]{
     text-align: center;
     color: whitesmoke;
     font-size: 1.2rem; 
     background-color: rgb(65, 11, 110);
 }
-
 /* Se elimina spin button en Chrome, Safari, Edge, Opera */
 .producto>div:nth-child(4) input[type="number"]::-webkit-inner-spin-button, 
 .producto>div:nth-child(4) input[type="number"]::-webkit-outer-spin-button { 
   -webkit-appearance: none;
   margin: 0;
 }
-
 /* Se elimina spin button en Firefox */
 input[type=number] {
     appearance: textfield;
     border: 0px;
 }
-
 /* Estilo para los botones para agregar/quitar productos */
 .producto button[type="button"]{
     background-color: rgb(65, 11, 110);
@@ -113,7 +116,6 @@ input[type=number] {
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
 }
-
 /* Estilos para el boton flotante que accede a los detalles de compra */
 .botonDetalleCompra {
         background-color:rgb(110, 107, 102);
@@ -136,7 +138,6 @@ input[type=number] {
 }
 @keyframes aparecerBotonDetalleCompra {
     0% {transform: translatex(100%);}
-    100% {transform: translateX(0px);}
 }
 .botonDetalleCompra:hover {
     background-color: rgb(114, 113, 111);
@@ -145,7 +146,7 @@ input[type=number] {
     border: 5px solid rgb(65, 11, 110);
 }
 .botonDetalleCompra:active{
-    border: 4px solid rgb(65, 11, 110);
+    border: 4px solid rgb(65, 11, 110); /*hago el borde más ancho para lograr efecto de apretado */
 }
 
 /* Fondo del modal */
@@ -162,7 +163,6 @@ input[type=number] {
     background-color: rgba(0,0,0,0.4);
     z-index: 1
 }
-
 /* Contenido del modal */
 .modalContenido {
     background-color:rgb(110, 107, 102);
@@ -176,13 +176,11 @@ input[type=number] {
     animation-name: animatetop;
     animation-duration: 0.4s
 }
-
 /* Agrega una animación de entrada al modal */
 @keyframes animatetop {
-    from {top: -300px; opacity: 0}
+    from {top: -300px; opacity: 0} /* Arranco el modal desde arriba y transparente */
     to {top: 0; opacity: 1}
 }
-
 /* Botón de cerrado del modal */
 .cerrar {
     color: #aaa;
@@ -190,19 +188,16 @@ input[type=number] {
     font-size: 28px;
     font-weight: bold;
 }
-.cerrar:hover,
-.cerrar:focus {
+.cerrar:hover, .cerrar:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
-
 /* Encabezado del Modal */
 .modalEncabezado {
     padding: 2px 16px;
     color: white;
 }
-
 /* Cuerpo del Modal */
 .modalCuerpo {
     padding: 5px;
@@ -213,21 +208,45 @@ input[type=number] {
 .detalleSubTotal {
     text-align: right;
 }
-
 /* Pie del Modal */
 .modalPie{
     display: flex;
     padding: 2px 16px;
     color: white;
     flex-direction: row;
-    align-items: baseline;
     font-size: 1.5rem;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: flex-start;
 }
-/* .modalPie input{
-    float: right;
-    margin: 5px;
-} */
+.medioDePago {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.8rem;
+    width: 100%;
+    justify-content: space-between;
+}
+#precioFinal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+#pieModalIzquierda {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+#divTarjeta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+#divTarjeta input{
+    border-radius: 15px;
+    border: solid 2px rgb(65, 11, 110);
+}
 #btnFinalizarComprar{
     width: 100px;
     height: 25px;
@@ -248,7 +267,6 @@ input[type=number] {
 #btnFinalizarComprar:active{
     border: 2px solid rgb(205, 194, 214);
 }
-
 /* Clases para adaptar el detalle cuando el stock es insuficiente */
 .stockError{
     color: red;
@@ -257,8 +275,8 @@ input[type=number] {
 }
 .elementoOculto{
     visibility: hidden;
+    display: none !important;
 }
-
 /* estilos de productos en oferta */
 .precios {
     display: flex;
