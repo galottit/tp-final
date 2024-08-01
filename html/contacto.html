@@ -31,8 +31,8 @@
         <!-- Formulario de contacto -->   
         <form class="datosPersonales">
           <h6>Los campos con * son obligatorios</h6>
-          <label for="Nombre"><span>* </span>Nombre:</label><input id="nombre" type="text" required>
-          <label for="apellido"><span>* </span>Apellido</label> <input id="apellido" type="text" required>
+          <label for="Nombre"><span>* </span>Nombre:</label><input id="nombre" type="text" pattern="[^\d]{1,50}" maxlength="50" required>
+          <label for="apellido"><span>* </span>Apellido</label> <input id="apellido" type="text" pattern="[^\d]{1,50}" maxlength="50" required>
           <label for="email"><span>* </span>Email</label><input id="email" type="email" required>
           <label for="telefono"><span>* </span>Teléfono <span>sin 0 ni 15, ej: 2284123456</span></label><input id="telefono" type="tel" pattern="[0-9]{10}" maxlength="10" required>
           <label for="cajaConsulta"><span>* </span>Dejanos tu consulta: <span>Máximo 1000 caracteres</span></label>
